@@ -1,0 +1,16 @@
+-main ApplicationMain 
+-lib nme
+-lib HaxePunk
+-cp src
+-cp /Users/grantm/src/NME/
+-cp /usr/lib/haxe/lib/HaxePunk/2,2,0/
+-D nme4=1
+-D nme_ver=4.0.0
+-D nme_install_tool=1
+-D web
+-swf-version 11
+-swf bin/flash/bin/Main.swf
+-swf-header 640:480:30:333333
+-cp bin/flash/haxe
+--no-inline
+-debug
