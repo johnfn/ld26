@@ -52,6 +52,8 @@ class AssetData {
 			type.set ("gfx/player.png", Reflect.field (AssetType, "image".toUpperCase ()));
 			className.set ("gfx/tilesheet.png", nme.NME_gfx_tilesheet_png);
 			type.set ("gfx/tilesheet.png", Reflect.field (AssetType, "image".toUpperCase ()));
+			className.set ("gfx/treasure.png", nme.NME_gfx_treasure_png);
+			type.set ("gfx/treasure.png", Reflect.field (AssetType, "image".toUpperCase ()));
 			className.set ("maps/map.tmx", nme.NME_maps_map_tmx);
 			type.set ("maps/map.tmx", Reflect.field (AssetType, "text".toUpperCase ()));
 			className.set ("font/04B_03__.ttf", nme.NME_font_5);
@@ -85,5 +87,6 @@ class NME_gfx_healthbar_png extends nme.display.BitmapData { public function new
 class NME_gfx_minimap_png extends nme.display.BitmapData { public function new () { super (0, 0); } }
 class NME_gfx_player_png extends nme.display.BitmapData { public function new () { super (0, 0); } }
 class NME_gfx_tilesheet_png extends nme.display.BitmapData { public function new () { super (0, 0); } }
+class NME_gfx_treasure_png extends nme.display.BitmapData { public function new () { super (0, 0); } }
 class NME_maps_map_tmx extends nme.utils.ByteArray { }
 class NME_font_5 extends nme.text.Font { }

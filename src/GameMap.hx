@@ -1,7 +1,7 @@
 import com.haxepunk.tmx.TmxEntity;
 import com.haxepunk.Entity;
 import com.haxepunk.HXP;
-
+import com.haxepunk.masks.Grid;
 
 class GameMap extends TmxEntity {
   public static var widthInTiles:Int = 20;
@@ -26,16 +26,26 @@ class GameMap extends TmxEntity {
     mapX = startX;
     mapY = startY;
 
-    for (l in layers) {
-      HXP.scene.add(l);
-    }
-
     switchMap(0, 0);
   }
 
   private function initializeItems() {
-    layers[0].loadGraphicXY("gfx/tilesheet.png", ["treasure"], mapX, mapY);
+    // could be genericified if necessary
+
     layers[0].loadMaskXY("treasure", "treasure", mapX, mapY);
+
+    var g:Grid = cast(layers[0].mask, Grid);
+
+    for (i in 0...g.width) {
+      for (j in 0...g.height) {
+        if (g.getTile(i, j)) {
+          var t:Treasure = new Treasure();
+          t.x = i * Constants.SIZE;
+          t.y = j * Constants.SIZE;
+          HXP.scene.add(t);
+        }
+      }
+    }
   }
 
   public function switchMap(dx:Int, dy:Int) {

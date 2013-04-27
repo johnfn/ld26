@@ -57,6 +57,11 @@ class Player extends Entity {
       this.moveBy(-facing * 20, 0, "wall");
     }
 
+    if (e.type == "treasure") {
+      var t:Treasure = cast(e, Treasure);
+      t.open();
+    }
+
     return true;
   }
 
