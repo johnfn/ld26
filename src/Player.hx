@@ -36,7 +36,7 @@ class Player extends Entity {
     spritemap.play("normal");
 
     this.graphic = spritemap;
-    this.setHitbox(playerWidth, playerHeight);
+    this.setHitbox(playerWidth - 2, playerHeight - 2); // fit in small spaces
 
     this.x = 50;
     this.y = 50;
@@ -84,6 +84,46 @@ class Player extends Entity {
     hitBottom = false;
   }
 
+  private function checkLeftMap() {
+    var scene:scenes.MainScene = cast(HXP.scene, scenes.MainScene);
+
+    if (scene.map.contains(this)) {
+      return;
+    }
+
+    if (this.x > scene.map.mapWidth) {
+      this.x -= scene.map.mapWidth;
+
+      scene.map.switchMap(1, 0);
+      return;
+    }
+
+    if (this.x < 0) {
+      this.x += scene.map.mapWidth;
+
+      scene.map.switchMap(-1, 0);
+      return;
+    }
+
+    if (this.y > scene.map.mapHeight) {
+      this.y -= scene.map.mapHeight;
+
+      scene.map.switchMap(0, 1);
+      return;
+    }
+
+    if (this.y < 0) {
+      this.y += scene.map.mapHeight;
+
+      scene.map.switchMap(0, -1);
+      return;
+    }
+
+    // could prob throw an assert here...
+
+    HXP.log("uh oh.");
+  }
+
   public override function update() {
     vx = 0;
 
@@ -123,9 +163,15 @@ class Player extends Entity {
     }
 
     resetState(); // moveBy sets state via moveCollide{X,Y}
-    this.moveBy(vx, vy, ["wall", "enemy", "coin"], true);
+
+    this.moveBy(vx, 0, ["wall", "enemy", "coin"], true);
+
+    checkLeftMap();
+
+    this.moveBy(0, vy, ["wall", "enemy", "coin"], true);
+
+    //checkLeftMap();
 
     super.update();
-
   }
 }

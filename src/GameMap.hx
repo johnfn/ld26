@@ -1,5 +1,7 @@
 import com.haxepunk.tmx.TmxEntity;
 import com.haxepunk.Entity;
+import com.haxepunk.HXP;
+
 
 class GameMap extends TmxEntity {
   public static var widthInTiles:Int = 20;
@@ -7,6 +9,9 @@ class GameMap extends TmxEntity {
 
   public var mapWidth:Int = 0;
   public var mapHeight:Int = 0;
+
+  public var mapX:Int = 0;
+  public var mapY:Int = 0;
 
   public function new(startX:Int, startY:Int) {
     super(Constants.MAP, widthInTiles, heightInTiles);
@@ -19,6 +24,20 @@ class GameMap extends TmxEntity {
 
     // loads a grid layer named collision and sets the entity type to wall
     loadMaskXY("collisions", "wall", startX, startY);
+
+    mapX = startX;
+    mapY = startY;
+  }
+
+  public function switchMap(dx:Int, dy:Int) {
+    mapX += dx;
+    mapY += dy;
+
+    // load layers named bottom, main, top with the appropriate tileset
+    loadGraphicXY("gfx/tilesheet.png", ["collisions"], mapX, mapY);
+
+    // loads a grid layer named collision and sets the entity type to wall
+    loadMaskXY("collisions", "wall", mapX, mapY);
   }
 
   public function contains(e:Entity):Bool {

@@ -31,12 +31,14 @@ class MainScene extends Scene {
 
     add(minimap);
 
+    /*
     var e:Enemy = new Enemy();
 
     e.x = 200;
     e.y = 200;
 
     add(e);
+    */
   }
 
   public override function update() {
