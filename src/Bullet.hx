@@ -71,5 +71,11 @@ class Bullet extends Entity {
   }
   public override function update() {
     this.moveBy(this.dirX, this.dirY, ["wall", "enemy"]);
+
+    var scene:scenes.MainScene = cast(HXP.scene, scenes.MainScene);
+
+    if (!scene.map.contains(this)) {
+      destroy();
+    }
   }
 }
