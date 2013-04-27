@@ -8,6 +8,7 @@ import com.haxepunk.Entity;
 
 class MainScene extends Scene {
   public var mapEntity:TmxEntity;
+  public var player:Player;
 
   public function new() {
     super();
@@ -23,7 +24,9 @@ class MainScene extends Scene {
     mapEntity.loadMask("collisions", "walls");
 
     add(mapEntity);
-    add(new Player());
+
+    player = new Player();
+    add(player);
 
     new HUD();
 
