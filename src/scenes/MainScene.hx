@@ -20,10 +20,11 @@ class MainScene extends Scene {
     e.loadMask("collisions", "walls");
 
     add(e);
+
+    add(new Player());
   }
 
   public override function update() {
     super.update();
   }
-
 }
