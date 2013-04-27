@@ -30,8 +30,8 @@ class Coin extends Entity {
       _destroyed = true;
       destroyer.coins += this.value;
 
-      HXP.log(Std.int(this.x));
-      HXP.scene.add(new FloatingText('+$value', Std.int(this.x), Std.int(this.y)));
+      var t:FloatingText = new FloatingText('{255,255,0} *+$value*', Std.int(this.x), Std.int(this.y));
+      HXP.scene.add(t);
     }
 
     HXP.scene.remove(this);

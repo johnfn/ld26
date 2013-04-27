@@ -23,9 +23,9 @@ class FloatingText extends Entity {
   }
 
   public override function update() {
-    this.y -= 5;
+    this.text.y -= 5;
 
-    if (this.y < 0) {
+    if (this.text.y < 0) {
       this.destroy();
     }
   }
