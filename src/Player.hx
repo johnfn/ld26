@@ -8,6 +8,9 @@ import com.haxepunk.HXP;
 import Std;
 
 class Player extends Entity {
+  public var health:Int = 6;
+  public var totalHealth:Int = 6;
+
   private var spritemap:Spritemap;
   private var playerWidth:Int = 25;
   private var playerHeight:Int = 25;
@@ -33,6 +36,8 @@ class Player extends Entity {
 
     this.x = 50;
     this.y = 50;
+
+    this.type = "player";
   }
 
   public override function moveCollideX(e:Entity):Bool {
@@ -46,6 +51,12 @@ class Player extends Entity {
     }
 
     return true;
+  }
+
+  public function damage(amt:Int):Void {
+    this.health -= amt;
+
+    HXP.log("i'm hit!");
   }
 
   private function shoot() {

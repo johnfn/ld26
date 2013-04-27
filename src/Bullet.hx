@@ -42,14 +42,24 @@ class Bullet extends Entity {
       destroy();
     }
 
-    if (e.type == "enemy") {
-      if (sourceType != "enemy") {
-        var en:Enemy = cast(e, Enemy);
-        en.damage(this.damage);
-        HXP.scene.add(new FloatingText('-$damage', Std.int(en.x), Std.int(en.y)));
+    // we guaranteed that bullets wont be blocked by their source shooter
+    // down below so these checks are fine.
 
-        destroy();
-      }
+    if (e.type == "enemy") {
+      var en:Enemy = cast(e, Enemy);
+      en.damage(this.damage);
+      HXP.scene.add(new FloatingText('-$damage', Std.int(en.x), Std.int(en.y)));
+
+      destroy();
+    }
+
+    if (e.type == "player") {
+      var p:Player = cast(e, Player);
+      p.damage(this.damage);
+
+      HXP.scene.add(new FloatingText('-$damage', Std.int(p.x), Std.int(p.y)));
+
+      destroy();
     }
   }
 
@@ -69,8 +79,17 @@ class Bullet extends Entity {
 
     return true;
   }
+
   public override function update() {
-    this.moveBy(this.dirX, this.dirY, ["wall", "enemy"]);
+    var blockers:Array<String> = ["wall"];
+
+    if (this.sourceType == "enemy") {
+      blockers.push("player");
+    } else {
+      blockers.push("enemy");
+    }
+
+    this.moveBy(this.dirX, this.dirY, blockers);
 
     var scene:scenes.MainScene = cast(HXP.scene, scenes.MainScene);
 

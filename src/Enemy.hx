@@ -12,6 +12,7 @@ class Enemy extends Entity {
   var healthbar:EnemyHealthbar;
   var dyingCount:Int = 60;
   var dying:Bool = false;
+  var facing:Int = 1;
 
   public function new() {
     super();
@@ -47,6 +48,10 @@ class Enemy extends Entity {
     healthbar.destroy();
   }
 
+  private function shoot() {
+    HXP.scene.add(new Bullet(this, 1, this.facing * 10, 0));
+  }
+
   public function slowlyDie() {
     // flicker
     dyingCount--;
@@ -67,6 +72,10 @@ class Enemy extends Entity {
 
     if (dying) {
       this.slowlyDie();
+    }
+
+    if (Std.random(20) == 0) {
+      shoot();
     }
   }
 }
