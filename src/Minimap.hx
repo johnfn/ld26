@@ -14,19 +14,23 @@ class Minimap extends Entity {
   var minimapPixels:Array<Array<Entity>>;
   var playerIcon:Entity;
   var minimapText:FancyText;
-  var show = true;
+  var show = false;
+  var startX:Int;
+  var startY:Int;
 
   public function new(startX:Int, startY:Int) {
     super();
 
+    minimapText = new FancyText("Hurr it's a Minimap!", startX, startY - 25);
+
+    this.startX = startX;
+    this.startY = startY;
+  }
+
+  function load() {
     var scene = cast(HXP.scene, scenes.MainScene);
     var playerX = Math.floor(scene.player.x / Constants.SIZE);
     var playerY = Math.floor(scene.player.y / Constants.SIZE);
-
-    minimapText = new FancyText("Hurr it's a Minimap!", startX, startY - 25);
-    this.graphic = minimapText;
-
-    // add "minimap" text.
 
     minimapPixels = [];
     for (x in 0...15) {
@@ -68,6 +72,11 @@ class Minimap extends Entity {
 
   public function toggle() {
     show = !show;
+
+    if (show) {
+      load();
+    }
+
     for (row in minimapPixels) {
       for (pix in row) {
         if (show) {
@@ -83,10 +92,5 @@ class Minimap extends Entity {
     } else {
       this.graphic = null;
     }
-  }
-
-  public function destroy() {
-    // remove all pixels (better is to just hide them)
-    // remove player icon
   }
 }
