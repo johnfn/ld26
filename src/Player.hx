@@ -5,6 +5,7 @@ import com.haxepunk.graphics.Spritemap;
 import com.haxepunk.graphics.atlas.TileAtlas;
 import com.haxepunk.graphics.*;
 import com.haxepunk.HXP;
+import Std;
 
 class Player extends Entity {
   private var spritemap:Spritemap;
@@ -48,7 +49,7 @@ class Player extends Entity {
   }
 
   private function shoot() {
-    HXP.scene.add(new Bullet(this, this.facing * 10, 0));
+    HXP.scene.add(new Bullet(this, Std.random(5) + 2, this.facing * 10, 0));
   }
 
   private function resetState() {

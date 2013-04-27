@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.0" orientation="orthogonal" width="100" height="100" tilewidth="25" tileheight="25">
  <tileset firstgid="1" name="tilesheet" tilewidth="25" tileheight="25">
-  <image source="../graphics/tilesheet.png" width="50" height="50"/>
+  <image source="../graphics/tilesheet.png" width="200" height="200"/>
  </tileset>
- <layer name="Tile Layer 1" width="100" height="100">
-  <data encoding="base64" compression="zlib">
-   eJzt10EKgDAMAMHa/z9aBA9FGu0pqTAD+UAWStMauznuGfVhyPfsMdKlxluTiya5Zu/WSI98euwnaqJHDT3qRH+nWRM9cqzuWY8cq/eFHrm+urgLa0Q716NODwYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD+6AQVuwBJ
-  </data>
- </layer>
  <layer name="collisions" width="100" height="100">
   <data encoding="base64" compression="zlib">
-   eJzt0aENADAQxLAH3X/mrvCgqgJs6dixzOyc5Y8/9GjRo0WPFj1a9GjRo0WPFj1a9GjRo0WPP85iM3oAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA71zAPwBZ
+   eJzt08EJACAMA8Au0P3XdQIhP63eQcir0E+qAP7Vpx+Ai9kH7NkHL+kg6U0FDQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAwwQI1dAEf
+  </data>
+ </layer>
+ <layer name="enemy" width="100" height="100">
+  <data encoding="base64" compression="zlib">
+   eJztzjENAAAIA7Ad+NeMjIXQKmgCAABww7QDAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAC8sNpeAAU=
   </data>
  </layer>
 </map>

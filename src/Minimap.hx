@@ -36,7 +36,7 @@ class Minimap extends Entity {
     for (x in 0...15) {
       minimapPixels.push([]);
       for (y in 0...15) {
-        var collMask:Grid = cast(scene.mapEntity.mask, Grid);
+        var collMask:Grid = cast(scene.map.mask, Grid);
         var cr;
         var destX:Int = startX + x * 3;
         var destY:Int = startY + y * 3;

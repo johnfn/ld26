@@ -13,7 +13,10 @@ class Bullet extends Entity {
   private var dirX:Int = 0;
   private var dirY:Int = 0;
 
-  public function new(spawner:Entity, dirX:Int, dirY:Int) {
+  private var sourceType:String = "";
+  private var damage:Int;
+
+  public function new(spawner:Entity, damage:Int, dirX:Int, dirY:Int) {
     super();
 
     this.x = spawner.x;
@@ -29,11 +32,22 @@ class Bullet extends Entity {
     this.graphic = spritemap;
 
     this.setHitbox(bulletWidth, bulletHeight); // prob unfair
+    this.sourceType = spawner.type;
+
+    this.damage = damage;
   }
 
   function genericCollide(e:Entity) {
     if (e.type == "walls") {
       destroy();
+    }
+
+    if (e.type == "enemy") {
+      if (sourceType != "enemy") {
+        e.damage(this.damage);
+
+        destroy();
+      }
     }
   }
 

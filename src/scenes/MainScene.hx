@@ -8,7 +8,9 @@ import com.haxepunk.Entity;
 import com.haxepunk.utils.*;
 
 class MainScene extends Scene {
-  public var mapEntity:TmxEntity;
+  public var map:GameMap;
+
+  //public var mapEntity:TmxEntity;
   public var player:Player;
   public var minimap:Minimap;
 
@@ -17,15 +19,10 @@ class MainScene extends Scene {
   }
 
   public override function begin() {
-    mapEntity = new TmxEntity("maps/map.tmx");
+    map = new GameMap(0, 0);
+    HXP.scene.add(map);
 
-    // load layers named bottom, main, top with the appropriate tileset
-    mapEntity.loadGraphic("gfx/tilesheet.png", ["Tile Layer 1"]);
-
-    // loads a grid layer named collision and sets the entity type to walls
-    mapEntity.loadMask("collisions", "walls");
-
-    add(mapEntity);
+    HXP.log(map.width);
 
     player = new Player();
     add(player);
@@ -35,6 +32,13 @@ class MainScene extends Scene {
     minimap = new Minimap(150, 150);
 
     add(minimap);
+
+    var e:Enemy = new Enemy();
+
+    e.x = 200;
+    e.y = 200;
+
+    add(e);
   }
 
   public override function update() {
