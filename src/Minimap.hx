@@ -11,8 +11,9 @@ import com.haxepunk.masks.Grid;
 import nme.geom.Rectangle;
 
 class Minimap extends Entity {
-  var minimapPixels:Array<Array<Image>>;
+  var minimapPixels:Array<Array<Entity>>;
   var playerIcon:Entity;
+  var minimapText:FancyText;
 
   public function new(startX:Int, startY:Int) {
     super();
@@ -20,6 +21,9 @@ class Minimap extends Entity {
     var scene = cast(HXP.scene, scenes.MainScene);
     var playerX = Math.floor(scene.player.x / Constants.SIZE);
     var playerY = Math.floor(scene.player.y / Constants.SIZE);
+
+    minimapText = new FancyText("Hurr it's a Minimap!", startX, startY - 25);
+    this.graphic = minimapText;
 
     // add "minimap" text.
 
@@ -38,23 +42,36 @@ class Minimap extends Entity {
           cr = new Rectangle(3, 0, 3, 3);
         }
 
-        if (x == playerX && y == playerY) {
-          playerIcon = new Entity(destX, destY);
+        var pix:Entity = new Entity();
 
+        if (x == playerX && y == playerY) {
           var spritemap = new Spritemap("gfx/minimap.png", 3, 3);
+
           spritemap.add("normal", [2, 3], 5, true);
           spritemap.play("normal");
 
-          playerIcon.graphic = spritemap;
-          HXP.scene.add(playerIcon);
+          pix.graphic = spritemap;
         } else {
-
           var i:Image = new Image("gfx/minimap.png", cr);
-          minimapPixels[x][y] = i;
-          HXP.scene.addGraphic(i);
 
-          i.x = destX;
-          i.y = destY;
+          pix.graphic = i;
+        }
+
+        pix.x = destX;
+        pix.y = destY;
+        HXP.scene.add(pix);
+        minimapPixels[x][y] = pix;
+      }
+    }
+  }
+
+  public function hide(show:Bool) {
+    for (row in minimapPixels) {
+      for (pix in row) {
+        if (show) {
+          HXP.scene.add(pix);
+        } else {
+          HXP.scene.remove(pix);
         }
       }
     }

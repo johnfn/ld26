@@ -30,7 +30,7 @@ class MainScene extends Scene {
 
     new HUD();
 
-    new Minimap(100, 100);
+    add(new Minimap(150, 150));
   }
 
   public override function update() {
