@@ -13,20 +13,24 @@ class GameMap extends TmxEntity {
   public var mapX:Int = 0;
   public var mapY:Int = 0;
 
+  public var layers:Array<TmxEntity>;
+
   public function new(startX:Int, startY:Int) {
     super(Constants.MAP, widthInTiles, heightInTiles);
+
+    layers = [new TmxEntity(Constants.MAP, widthInTiles, heightInTiles)];
 
     mapWidth = widthInTiles   * Constants.SIZE;
     mapHeight = heightInTiles * Constants.SIZE;
 
-    // load layers named bottom, main, top with the appropriate tileset
-    loadGraphicXY("gfx/tilesheet.png", ["collisions"], startX, startY);
-
-    // loads a grid layer named collision and sets the entity type to wall
-    loadMaskXY("collisions", "wall", startX, startY);
-
     mapX = startX;
     mapY = startY;
+
+    for (l in layers) {
+      HXP.scene.add(l);
+    }
+
+    switchMap(0, 0);
   }
 
   public function switchMap(dx:Int, dy:Int) {
@@ -35,9 +39,10 @@ class GameMap extends TmxEntity {
 
     // load layers named bottom, main, top with the appropriate tileset
     loadGraphicXY("gfx/tilesheet.png", ["collisions"], mapX, mapY);
-
-    // loads a grid layer named collision and sets the entity type to wall
     loadMaskXY("collisions", "wall", mapX, mapY);
+
+    layers[0].loadGraphicXY("gfx/tilesheet.png", ["treasure"], mapX, mapY);
+    layers[0].loadMaskXY("treasure", "treasure", mapX, mapY);
   }
 
   public function contains(e:Entity):Bool {

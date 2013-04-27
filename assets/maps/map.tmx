@@ -13,4 +13,9 @@
    eJztwTEBAAAAwqD1T+1lC6AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAbnEAAAQ==
   </data>
  </layer>
+ <layer name="treasure" width="100" height="100">
+  <data encoding="base64" compression="zlib">
+   eJztzgENAAAIA6A3sX9LY9xNSEACAABwx7QDAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAC8twEyACA=
+  </data>
+ </layer>
 </map>
