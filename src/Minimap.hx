@@ -14,6 +14,7 @@ class Minimap extends Entity {
   var minimapPixels:Array<Array<Entity>>;
   var playerIcon:Entity;
   var minimapText:FancyText;
+  var show = true;
 
   public function new(startX:Int, startY:Int) {
     super();
@@ -65,7 +66,8 @@ class Minimap extends Entity {
     }
   }
 
-  public function hide(show:Bool) {
+  public function toggle() {
+    show = !show;
     for (row in minimapPixels) {
       for (pix in row) {
         if (show) {
@@ -74,6 +76,12 @@ class Minimap extends Entity {
           HXP.scene.remove(pix);
         }
       }
+    }
+
+    if (show) {
+      this.graphic = minimapText;
+    } else {
+      this.graphic = null;
     }
   }
 

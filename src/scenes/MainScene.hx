@@ -5,10 +5,12 @@ import com.haxepunk.Engine;
 import com.haxepunk.HXP;
 import com.haxepunk.tmx.TmxEntity;
 import com.haxepunk.Entity;
+import com.haxepunk.utils.*;
 
 class MainScene extends Scene {
   public var mapEntity:TmxEntity;
   public var player:Player;
+  public var minimap:Minimap;
 
   public function new() {
     super();
@@ -30,10 +32,16 @@ class MainScene extends Scene {
 
     new HUD();
 
-    add(new Minimap(150, 150));
+    minimap = new Minimap(150, 150);
+
+    add(minimap);
   }
 
   public override function update() {
     super.update();
+
+    if (Input.released(Key.M)) {
+      minimap.toggle();
+    }
   }
 }
