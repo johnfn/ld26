@@ -10,6 +10,8 @@ class Enemy extends Entity {
   var _health:Int = 20;
   var _maxHealth:Int = 20;
   var healthbar:EnemyHealthbar;
+  var dyingCount:Int = 60;
+  var dying:Bool = false;
 
   public function new() {
     super();
@@ -38,8 +40,33 @@ class Enemy extends Entity {
     return _maxHealth;
   }
 
+  public function destroy() {
+    HXP.scene.remove(this);
+    this.graphic = null;
+
+    healthbar.destroy();
+  }
+
+  public function slowlyDie() {
+    // flicker
+    dyingCount--;
+    Constants.flicker(this, dyingCount);
+
+    if (dyingCount < 0) {
+      destroy();
+    }
+  }
+
   public override function update() {
     healthbar.update();
     super.update();
+
+    if (this.health() < 0) {
+      dying = true;
+    }
+
+    if (dying) {
+      this.slowlyDie();
+    }
   }
 }
