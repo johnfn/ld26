@@ -164,11 +164,11 @@ class Player extends Entity {
 
     resetState(); // moveBy sets state via moveCollide{X,Y}
 
-    this.moveBy(vx, 0, ["wall", "enemy", "coin"], true);
+    this.moveBy(vx, 0, ["wall", "enemy", "coin", "treasure"], true);
 
     checkLeftMap();
 
-    this.moveBy(0, vy, ["wall", "enemy", "coin"], true);
+    this.moveBy(0, vy, ["wall", "enemy", "coin", "treasure"], true);
 
     checkLeftMap();
 

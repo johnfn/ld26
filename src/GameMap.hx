@@ -33,6 +33,11 @@ class GameMap extends TmxEntity {
     switchMap(0, 0);
   }
 
+  private function initializeItems() {
+    layers[0].loadGraphicXY("gfx/tilesheet.png", ["treasure"], mapX, mapY);
+    layers[0].loadMaskXY("treasure", "treasure", mapX, mapY);
+  }
+
   public function switchMap(dx:Int, dy:Int) {
     mapX += dx;
     mapY += dy;
@@ -41,8 +46,7 @@ class GameMap extends TmxEntity {
     loadGraphicXY("gfx/tilesheet.png", ["collisions"], mapX, mapY);
     loadMaskXY("collisions", "wall", mapX, mapY);
 
-    layers[0].loadGraphicXY("gfx/tilesheet.png", ["treasure"], mapX, mapY);
-    layers[0].loadMaskXY("treasure", "treasure", mapX, mapY);
+    initializeItems();
   }
 
   public function contains(e:Entity):Bool {
