@@ -26,6 +26,8 @@ class Player extends Entity {
   private var gunCooldown:Int = 10;
   private var gunCooldownMax:Int = 10;
 
+  private var noMoveFlickerCountdown:Int = 15;
+
   public function new() {
     super();
 
@@ -42,8 +44,9 @@ class Player extends Entity {
     this.type = "player";
   }
 
-  public override function moveCollideX(e:Entity):Bool {
+  private function genericCollision(e:Entity):Bool {
     if (e.type == "coin") {
+      HXP.log("heyyy");
       var c = cast(e, Coin);
       this.coins += 1;
 
@@ -52,7 +55,16 @@ class Player extends Entity {
       return false;
     }
 
+    if (e.type == "enemy") {
+      noMoveFlickerCountdown = 30;
+      this.moveBy(-facing * 20, 0, "wall");
+    }
+
     return true;
+  }
+
+  public override function moveCollideX(e:Entity):Bool {
+    return genericCollision(e);
   }
 
   public override function moveCollideY(e:Entity):Bool {
@@ -60,7 +72,7 @@ class Player extends Entity {
       hitBottom = true;
     }
 
-    return true;
+    return genericCollision(e);
   }
 
   public function damage(amt:Int):Void {
@@ -77,6 +89,12 @@ class Player extends Entity {
 
   public override function update() {
     vx = 0;
+
+    if (noMoveFlickerCountdown > 0) {
+      noMoveFlickerCountdown--;
+      Constants.flicker(this, noMoveFlickerCountdown);
+      return;
+    }
 
     if (Input.check(Key.D)) {
       vx += 6;
