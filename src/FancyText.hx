@@ -80,6 +80,7 @@ class FancyText extends Image
     _field.defaultTextFormat = _format;
     _field.text = text;
 
+
     resizable = options.resizable;
 
     if (width == 0) width = Std.int(_field.textWidth + 4);
@@ -98,6 +99,7 @@ class FancyText extends Image
     {
       source = HXP.createBitmap(width, height, true);
     }
+
     super(source);
 
     this.text = text;

@@ -31,14 +31,14 @@ class MainScene extends Scene {
 
     add(minimap);
 
-    /*
     var e:Enemy = new Enemy();
 
     e.x = 200;
     e.y = 200;
 
     add(e);
-    */
+
+    add(new DialogBox(["This is a test lon lon lon lon lon lon lon lon lon lon lon lon lon lon lon lon lon lon lon longggggggggggggggggggg", "You passed the test!", "And by you, I mean me."]));
   }
 
   public override function update() {
