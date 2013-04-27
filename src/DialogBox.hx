@@ -14,6 +14,7 @@ class DialogBox extends Entity {
   private var bg:Entity;
   private var imgWidth:Int  = 300;
   private var imgHeight:Int = 200;
+  private var mainscene:scenes.MainScene;
 
   public function new(texts:Array<String>) {
     super();
@@ -35,6 +36,9 @@ class DialogBox extends Entity {
     HXP.log('here it is ${imgWidth}');
     HXP.log('here it is ${this.textbox.width}');
     this.graphic = textbox;
+
+    mainscene = cast(HXP.scene, scenes.MainScene);
+    mainscene.pause(this);
   }
 
   public function destroy() {
@@ -42,6 +46,7 @@ class DialogBox extends Entity {
 
     HXP.scene.remove(this);
     this.graphic = null;
+    mainscene.unpause();
   }
 
   public override function update() {

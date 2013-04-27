@@ -14,6 +14,10 @@ class MainScene extends Scene {
   public var player:Player;
   public var minimap:Minimap;
 
+  public var paused:Bool = false;
+
+  public var pauser:Entity;
+
   public function new() {
     super();
   }
@@ -38,14 +42,27 @@ class MainScene extends Scene {
 
     add(e);
 
-    add(new DialogBox(["This is a test lon lon lon lon lon lon lon lon lon lon lon lon lon lon lon lon lon lon lon longggggggggggggggggggg", "You passed the test!", "And by you, I mean me."]));
+    add(new DialogBox(["Yayaya", "You passed the test!", "And by you, I mean me."]));
+  }
+
+  public function pause(pauser:Entity) {
+    paused = true;
+    this.pauser = pauser;
+  }
+
+  public function unpause() {
+    paused = false;
   }
 
   public override function update() {
-    super.update();
+    if (!paused) {
+      super.update();
 
-    if (Input.released(Key.M)) {
-      minimap.toggle();
+      if (Input.released(Key.M)) {
+        minimap.toggle();
+      }
+    } else {
+      pauser.update();
     }
   }
 }
