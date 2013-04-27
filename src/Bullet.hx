@@ -31,8 +31,29 @@ class Bullet extends Entity {
     this.setHitbox(bulletWidth, bulletHeight); // prob unfair
   }
 
-  public override function update() {
+  function genericCollide(e:Entity) {
+    if (e.type == "walls") {
+      destroy();
+    }
+  }
 
-    this.moveBy(this.dirX, this.dirY);
+  public function destroy() {
+    HXP.scene.remove(this);
+    this.graphic = null;
+  }
+
+  public override function moveCollideX(e:Entity):Bool {
+    genericCollide(e);
+
+    return true;
+  }
+
+  public override function moveCollideY(e:Entity):Bool {
+    genericCollide(e);
+
+    return true;
+  }
+  public override function update() {
+    this.moveBy(this.dirX, this.dirY, "walls");
   }
 }

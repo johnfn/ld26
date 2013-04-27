@@ -69,13 +69,13 @@ class Player extends Entity {
     if (vx != 0) this.facing = HXP.sign(vx);
 
     if (Input.check(Key.SPACE)) {
-      this.gunCooldown -= 1;
-
       if (this.gunCooldown <= 0) {
         shoot();
         this.gunCooldown = this.gunCooldownMax;
       }
     }
+
+    this.gunCooldown -= 1;
 
     vy += 1;
 
