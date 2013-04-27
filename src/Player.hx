@@ -11,6 +11,8 @@ class Player extends Entity {
   public var health:Int = 6;
   public var totalHealth:Int = 6;
 
+  public var coins:Int = 0;
+
   private var spritemap:Spritemap;
   private var playerWidth:Int = 25;
   private var playerHeight:Int = 25;
@@ -41,6 +43,14 @@ class Player extends Entity {
   }
 
   public override function moveCollideX(e:Entity):Bool {
+    if (e.type == "coin") {
+      var c = cast(e, Coin);
+      this.coins += 1;
+
+      c.destroy();
+
+      return false;
+    }
 
     return true;
   }
@@ -98,7 +108,7 @@ class Player extends Entity {
     }
 
     resetState(); // moveBy sets state via moveCollide{X,Y}
-    this.moveBy(vx, vy, ["wall", "enemy"], true);
+    this.moveBy(vx, vy, ["wall", "enemy", "coin"], true);
 
     super.update();
 

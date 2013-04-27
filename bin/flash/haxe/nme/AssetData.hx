@@ -36,6 +36,8 @@ class AssetData {
 			type.set ("font/04B_03__.ttf", Reflect.field (AssetType, "font".toUpperCase ()));
 			className.set ("gfx/bullet.png", nme.NME_gfx_bullet_png);
 			type.set ("gfx/bullet.png", Reflect.field (AssetType, "image".toUpperCase ()));
+			className.set ("gfx/coin.png", nme.NME_gfx_coin_png);
+			type.set ("gfx/coin.png", Reflect.field (AssetType, "image".toUpperCase ()));
 			className.set ("gfx/enemy-shooter.png", nme.NME_gfx_enemy_shooter_png);
 			type.set ("gfx/enemy-shooter.png", Reflect.field (AssetType, "image".toUpperCase ()));
 			className.set ("gfx/guns.png", nme.NME_gfx_guns_png);
@@ -75,6 +77,7 @@ class NME_gfx_debug_console_step_png extends nme.display.BitmapData { public fun
 class NME_gfx_preloader_haxepunk_png extends nme.display.BitmapData { public function new () { super (0, 0); } }
 class NME_font_04b_03___ttf extends nme.text.Font { }
 class NME_gfx_bullet_png extends nme.display.BitmapData { public function new () { super (0, 0); } }
+class NME_gfx_coin_png extends nme.display.BitmapData { public function new () { super (0, 0); } }
 class NME_gfx_enemy_shooter_png extends nme.display.BitmapData { public function new () { super (0, 0); } }
 class NME_gfx_guns_png extends nme.display.BitmapData { public function new () { super (0, 0); } }
 class NME_gfx_health_png extends nme.display.BitmapData { public function new () { super (0, 0); } }

@@ -7,6 +7,8 @@ import com.haxepunk.graphics.*;
 import com.haxepunk.HXP;
 
 class HUD extends Entity {
+  private var player:Player;
+
   // healthbar
   private var healthbar:Healthbar;
 
@@ -20,8 +22,16 @@ class HUD extends Entity {
   private var gunIcon:Entity;
   private var gunSize:Int = 25;
 
+  // coin text & shadow
+  private var coinText:FancyText;
+  private var coinTextHolder:Entity;
+  private var coinTextShadow:FancyText;
+  private var coinTextShadowHolder:Entity;
+
   public function new(p:Player) {
     super();
+
+    player = p;
 
     healthbar = new Healthbar(50, 50, p);
     HXP.scene.add(healthbar);
@@ -47,9 +57,28 @@ class HUD extends Entity {
     gunIcon.y = 80;
 
     HXP.scene.add(gunIcon);
+
+    HXP.log(HXP.width);
+    coinText = new FancyText("Coins: 0", HXP.width - 100, 50, 100, 50, {align: nme.text.TextFormatAlign.RIGHT, color: 0xffffff});
+    coinTextHolder = new Entity();
+    coinTextHolder.graphic = coinText;
+
+    coinTextShadow = new FancyText("Coins: 0", HXP.width - 100 + 3, 50 + 3, 100, 50, {align: nme.text.TextFormatAlign.RIGHT, color: 0});
+    coinTextShadowHolder = new Entity();
+    coinTextShadowHolder.graphic = coinTextShadow;
+
+    HXP.scene.add(coinTextShadowHolder);
+    HXP.scene.add(coinTextHolder);
   }
 
   public override function update() {
+
+    /*
+    private var coinText:FancyText;
+    private var gunTextHolder:Entity;
+    private var coinTextShadow:FancyText;
+    private var gunTextShadowHolder:Entity;
+    */
 
     super.update();
   }

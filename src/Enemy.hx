@@ -46,6 +46,12 @@ class Enemy extends Entity {
     this.graphic = null;
 
     healthbar.destroy();
+
+    var c:Coin = new Coin();
+    c.x = this.x;
+    c.y = this.y;
+
+    HXP.scene.add(c);
   }
 
   private function shoot() {

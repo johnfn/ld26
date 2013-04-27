@@ -22,8 +22,6 @@ class MainScene extends Scene {
     map = new GameMap(0, 0);
     HXP.scene.add(map);
 
-    HXP.log(map.width);
-
     player = new Player();
     add(player);
 

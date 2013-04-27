@@ -17,7 +17,16 @@ class FloatingText extends Entity {
     graphic = text;
   }
 
+  private function destroy() {
+    HXP.scene.remove(this);
+    this.graphic = null;
+  }
+
   public override function update() {
     this.y -= 5;
+
+    if (this.y < 0) {
+      this.destroy();
+    }
   }
 }
