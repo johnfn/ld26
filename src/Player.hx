@@ -91,7 +91,7 @@ class Player extends Entity {
       return;
     }
 
-    if (this.x > scene.map.mapWidth) {
+    if (this.x >= scene.map.mapWidth) {
       this.x -= scene.map.mapWidth;
 
       scene.map.switchMap(1, 0);
@@ -105,7 +105,7 @@ class Player extends Entity {
       return;
     }
 
-    if (this.y > scene.map.mapHeight) {
+    if (this.y >= scene.map.mapHeight) {
       this.y -= scene.map.mapHeight;
 
       scene.map.switchMap(0, 1);
@@ -170,7 +170,7 @@ class Player extends Entity {
 
     this.moveBy(0, vy, ["wall", "enemy", "coin"], true);
 
-    //checkLeftMap();
+    checkLeftMap();
 
     super.update();
   }
