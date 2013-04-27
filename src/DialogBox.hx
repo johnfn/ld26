@@ -10,6 +10,8 @@ import Std;
 class DialogBox extends Entity {
   private var texts:Array<String>;
   private var textbox:FancyText;
+  private var nextDialogText:FancyText;
+  private var nextDialogHolder:Entity;
 
   private var bg:Entity;
   private var imgWidth:Int  = 300;
@@ -33,6 +35,15 @@ class DialogBox extends Entity {
     this.texts = texts;
     this.textbox = new FancyText(texts.shift(), 20, 20, imgWidth - 40, imgHeight - 40, {wordWrap: true, color: 0xffffff});
 
+    this.nextDialogText = new FancyText("*x* to continue", this.x + imgWidth + 10, this.y + imgHeight);
+    nextDialogText.x -= nextDialogText.width;
+    nextDialogText.y -= nextDialogText.height;
+
+    this.nextDialogHolder = new Entity();
+    this.nextDialogHolder.graphic = this.nextDialogText;
+
+    HXP.scene.add(nextDialogHolder);
+
     HXP.log('here it is ${imgWidth}');
     HXP.log('here it is ${this.textbox.width}');
     this.graphic = textbox;
@@ -43,6 +54,9 @@ class DialogBox extends Entity {
 
   public function destroy() {
     HXP.scene.remove(this.bg);
+
+    HXP.scene.remove(this.nextDialogHolder);
+    nextDialogHolder.graphic = null;
 
     HXP.scene.remove(this);
     this.graphic = null;
