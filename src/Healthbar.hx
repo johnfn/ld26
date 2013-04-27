@@ -9,8 +9,9 @@ import com.haxepunk.HXP;
 class Healthbar extends Entity {
   var boxes:Array<Entity>;
   private var healthSize:Int = 25;
+  private var follow:Player;
 
-  public function new(x:Int, y:Int) {
+  public function new(x:Int, y:Int, follow:Player) {
     super();
 
     boxes = [];
@@ -34,10 +35,10 @@ class Healthbar extends Entity {
       HXP.scene.add(box);
     }
 
-    setHealth(5);
+    this.follow = follow;
   }
 
-  public function setHealth(amt:Int) {
+  public function setHealth(amt:Int, total:Int) {
     for (box in boxes) {
       var sm = cast(box.graphic, Spritemap);
       if (amt >= 2) {
@@ -53,6 +54,7 @@ class Healthbar extends Entity {
   }
 
   public override function update() {
+    setHealth(follow.health, follow.totalHealth);
     super.update();
   }
 }

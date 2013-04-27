@@ -72,10 +72,10 @@ class Enemy extends Entity {
 
     if (dying) {
       this.slowlyDie();
-    }
-
-    if (Std.random(20) == 0) {
-      shoot();
+    } else {
+      if (Std.random(20) == 0) {
+        shoot();
+      }
     }
   }
 }

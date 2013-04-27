@@ -20,10 +20,11 @@ class HUD extends Entity {
   private var gunIcon:Entity;
   private var gunSize:Int = 25;
 
-  public function new() {
+  public function new(p:Player) {
     super();
 
-    healthbar = new Healthbar(50, 50);
+    healthbar = new Healthbar(50, 50, p);
+    HXP.scene.add(healthbar);
 
     gunText = new FancyText("Gun:{255,0,0} *DerpGun*", 50, 85);
     textHolder = new Entity();

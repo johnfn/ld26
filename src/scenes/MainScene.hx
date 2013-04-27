@@ -27,7 +27,7 @@ class MainScene extends Scene {
     player = new Player();
     add(player);
 
-    new HUD();
+    new HUD(player);
 
     minimap = new Minimap(150, 150);
 

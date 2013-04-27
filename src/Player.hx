@@ -55,8 +55,6 @@ class Player extends Entity {
 
   public function damage(amt:Int):Void {
     this.health -= amt;
-
-    HXP.log("i'm hit!");
   }
 
   private function shoot() {
@@ -100,7 +98,7 @@ class Player extends Entity {
     }
 
     resetState(); // moveBy sets state via moveCollide{X,Y}
-    this.moveBy(vx, vy, "wall", true);
+    this.moveBy(vx, vy, ["wall", "enemy"], true);
 
     super.update();
 
