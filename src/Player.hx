@@ -46,11 +46,8 @@ class Player extends Entity {
 
   private function genericCollision(e:Entity):Bool {
     if (e.type == "coin") {
-      HXP.log("heyyy");
       var c = cast(e, Coin);
-      this.coins += 1;
-
-      c.destroy();
+      c.destroy(this);
 
       return false;
     }

@@ -7,6 +7,7 @@ import com.haxepunk.graphics.*;
 import com.haxepunk.HXP;
 
 class Coin extends Entity {
+  private var _destroyed:Bool = false;
 
   public function new() {
     super();
@@ -21,7 +22,12 @@ class Coin extends Entity {
     this.graphic = spritemap;
   }
 
-  public function destroy() {
+  public function destroy(destroyer:Player) {
+    if (!_destroyed) {
+      _destroyed = true;
+      destroyer.coins += 1;
+    }
+
     HXP.scene.remove(this);
     this.graphic = null;
   }
