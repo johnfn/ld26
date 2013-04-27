@@ -72,14 +72,8 @@ class HUD extends Entity {
   }
 
   public override function update() {
-
-    /*
-    private var coinText:FancyText;
-    private var gunTextHolder:Entity;
-    private var coinTextShadow:FancyText;
-    private var gunTextShadowHolder:Entity;
-    */
-
+    coinText.text = 'Coins: ${player.coins}';
+    coinTextShadow.text = 'Coins: ${player.coins}';
     super.update();
   }
 }
