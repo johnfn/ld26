@@ -7,9 +7,16 @@ import com.haxepunk.graphics.*;
 import com.haxepunk.HXP;
 
 class HUD extends Entity {
+  // healthbar
   private var healthbar:Healthbar;
+
+  // gun text & shadow
   private var gunText:FancyText;
   private var textHolder:Entity;
+  private var gunTextShadow:FancyText;
+  private var textShadowHolder:Entity;
+
+  // gun icon
   private var gunIcon:Entity;
   private var gunSize:Int = 25;
 
@@ -17,9 +24,15 @@ class HUD extends Entity {
     super();
 
     healthbar = new Healthbar(50, 50);
-    gunText = new FancyText("Gun: {255,0,0} *DerpGun*", 50, 85);
+
+    gunText = new FancyText("Gun:{255,0,0} *DerpGun*", 50, 85);
     textHolder = new Entity();
     textHolder.graphic = gunText;
+
+    gunTextShadow = new FancyText("{0,0,0}*Gun: DerpGun*", gunText.x + 3, gunText.y + 3);
+    textShadowHolder = new Entity();
+    textShadowHolder.graphic = gunTextShadow;
+    HXP.scene.add(textShadowHolder);
     HXP.scene.add(textHolder);
 
     var spritemap = new Spritemap("gfx/guns.png", gunSize, gunSize);
