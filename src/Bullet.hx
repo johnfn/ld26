@@ -38,13 +38,15 @@ class Bullet extends Entity {
   }
 
   function genericCollide(e:Entity) {
-    if (e.type == "walls") {
+    if (e.type == "wall") {
       destroy();
     }
 
     if (e.type == "enemy") {
       if (sourceType != "enemy") {
-        e.damage(this.damage);
+        var en:Enemy = cast(e, Enemy);
+        en.damage(this.damage);
+        HXP.scene.add(new FloatingText('-$damage', Std.int(en.x), Std.int(en.y)));
 
         destroy();
       }
@@ -68,6 +70,6 @@ class Bullet extends Entity {
     return true;
   }
   public override function update() {
-    this.moveBy(this.dirX, this.dirY, "walls");
+    this.moveBy(this.dirX, this.dirY, ["wall", "enemy"]);
   }
 }

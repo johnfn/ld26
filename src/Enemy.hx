@@ -15,6 +15,8 @@ class Enemy extends Entity {
     type = "enemy";
 
     graphic = new Image("gfx/enemy-shooter.png");
+
+    this.setHitbox(Constants.SIZE, Constants.SIZE);
   }
 
   public function damage(amt:Int):Void {

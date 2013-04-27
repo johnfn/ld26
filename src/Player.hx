@@ -89,7 +89,7 @@ class Player extends Entity {
     }
 
     resetState(); // moveBy sets state via moveCollide{X,Y}
-    this.moveBy(vx, vy, "walls", true);
+    this.moveBy(vx, vy, "wall", true);
 
     super.update();
 

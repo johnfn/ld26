@@ -17,8 +17,8 @@ class GameMap extends TmxEntity {
     // load layers named bottom, main, top with the appropriate tileset
     loadGraphicXY("gfx/tilesheet.png", ["collisions"], startX, startY);
 
-    // loads a grid layer named collision and sets the entity type to walls
-    loadMaskXY("collisions", "walls", startX, startY);
+    // loads a grid layer named collision and sets the entity type to wall
+    loadMaskXY("collisions", "wall", startX, startY);
   }
 
   public function contains(e:Entity):Bool {
