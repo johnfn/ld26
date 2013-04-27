@@ -274,8 +274,6 @@ class FancyText extends Image
       return replacement;
     });
 
-    HXP.log('pairs: $pairs');
-
     _field.text = resultText;
     updateBuffer();
     return resultText;

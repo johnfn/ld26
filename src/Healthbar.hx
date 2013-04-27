@@ -10,16 +10,14 @@ class Healthbar extends Entity {
   var boxes:Array<Entity>;
   private var healthSize:Int = 25;
 
-  public function new() {
+  public function new(x:Int, y:Int) {
     super();
 
     boxes = [];
 
     for (i in 0...4) {
       var box = new Entity();
-      var spritemap:Spritemap;
-
-      spritemap = new Spritemap("gfx/health.png", healthSize, healthSize);
+      var spritemap = new Spritemap("gfx/health.png", healthSize, healthSize);
       spritemap.add("normal", [0]);
       spritemap.add("half", [1]);
       spritemap.add("gone", [2]);
@@ -30,8 +28,8 @@ class Healthbar extends Entity {
 
       boxes.push(box);
 
-      box.x = 50 + i * 30;
-      box.y = 50;
+      box.x = x + i * 30;
+      box.y = y;
 
       HXP.scene.add(box);
     }
