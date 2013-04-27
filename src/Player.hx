@@ -15,6 +15,10 @@ class Player extends Entity {
 
   private var vx = 0;
   private var vy = 0;
+  private var facing:Int = 1;
+
+  private var gunCooldown:Int = 10;
+  private var gunCooldownMax:Int = 10;
 
   public function new() {
     super();
@@ -43,6 +47,10 @@ class Player extends Entity {
     return true;
   }
 
+  private function shoot() {
+    HXP.scene.add(new Bullet(this, this.facing * 10, 0));
+  }
+
   private function resetState() {
     hitBottom = false;
   }
@@ -56,6 +64,17 @@ class Player extends Entity {
 
     if (Input.check(Key.A)) {
       vx -= 6;
+    }
+
+    if (vx != 0) this.facing = HXP.sign(vx);
+
+    if (Input.check(Key.SPACE)) {
+      this.gunCooldown -= 1;
+
+      if (this.gunCooldown <= 0) {
+        shoot();
+        this.gunCooldown = this.gunCooldownMax;
+      }
     }
 
     vy += 1;
