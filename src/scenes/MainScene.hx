@@ -22,6 +22,8 @@ class MainScene extends Scene {
     add(e);
 
     add(new Player());
+
+    new HUD();
   }
 
   public override function update() {

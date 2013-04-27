@@ -36,6 +36,8 @@ class AssetData {
 			type.set ("font/04B_03__.ttf", Reflect.field (AssetType, "font".toUpperCase ()));
 			className.set ("gfx/bullet.png", nme.NME_gfx_bullet_png);
 			type.set ("gfx/bullet.png", Reflect.field (AssetType, "image".toUpperCase ()));
+			className.set ("gfx/health.png", nme.NME_gfx_health_png);
+			type.set ("gfx/health.png", Reflect.field (AssetType, "image".toUpperCase ()));
 			className.set ("gfx/player.png", nme.NME_gfx_player_png);
 			type.set ("gfx/player.png", Reflect.field (AssetType, "image".toUpperCase ()));
 			className.set ("gfx/tilesheet.png", nme.NME_gfx_tilesheet_png);
@@ -65,6 +67,7 @@ class NME_gfx_debug_console_step_png extends nme.display.BitmapData { public fun
 class NME_gfx_preloader_haxepunk_png extends nme.display.BitmapData { public function new () { super (0, 0); } }
 class NME_font_04b_03___ttf extends nme.text.Font { }
 class NME_gfx_bullet_png extends nme.display.BitmapData { public function new () { super (0, 0); } }
+class NME_gfx_health_png extends nme.display.BitmapData { public function new () { super (0, 0); } }
 class NME_gfx_player_png extends nme.display.BitmapData { public function new () { super (0, 0); } }
 class NME_gfx_tilesheet_png extends nme.display.BitmapData { public function new () { super (0, 0); } }
 class NME_maps_map_tmx extends nme.utils.ByteArray { }
