@@ -4,28 +4,30 @@ import com.haxepunk.Scene;
 import com.haxepunk.Engine;
 import com.haxepunk.HXP;
 import com.haxepunk.tmx.TmxEntity;
+import com.haxepunk.Entity;
 
 class MainScene extends Scene {
+  public var mapEntity:TmxEntity;
+
   public function new() {
     super();
   }
 
   public override function begin() {
-    var e = new TmxEntity("maps/map.tmx");
+    mapEntity = new TmxEntity("maps/map.tmx");
 
     // load layers named bottom, main, top with the appropriate tileset
-    e.loadGraphic("gfx/tilesheet.png", ["Tile Layer 1"]);
+    mapEntity.loadGraphic("gfx/tilesheet.png", ["Tile Layer 1"]);
 
     // loads a grid layer named collision and sets the entity type to walls
-    e.loadMask("collisions", "walls");
+    mapEntity.loadMask("collisions", "walls");
 
-    add(e);
-
+    add(mapEntity);
     add(new Player());
 
     new HUD();
 
-    new Minimap();
+    new Minimap(100, 100);
   }
 
   public override function update() {
