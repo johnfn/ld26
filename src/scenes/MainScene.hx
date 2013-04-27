@@ -24,6 +24,8 @@ class MainScene extends Scene {
     add(new Player());
 
     new HUD();
+
+    new Minimap();
   }
 
   public override function update() {
