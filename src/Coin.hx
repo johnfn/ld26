@@ -8,9 +8,12 @@ import com.haxepunk.HXP;
 
 class Coin extends Entity {
   private var _destroyed:Bool = false;
+  private var value:Int = 0;
 
-  public function new() {
+  public function new(value:Int = 1) {
     super();
+
+    this.value = value;
 
     var spritemap = new Spritemap("gfx/coin.png", Constants.SIZE, Constants.SIZE);
     spritemap.add("normal", [0]); //note - not specifying a framerate currently
@@ -25,7 +28,10 @@ class Coin extends Entity {
   public function destroy(destroyer:Player) {
     if (!_destroyed) {
       _destroyed = true;
-      destroyer.coins += 1;
+      destroyer.coins += this.value;
+
+      HXP.log(Std.int(this.x));
+      HXP.scene.add(new FloatingText('+$value', Std.int(this.x), Std.int(this.y)));
     }
 
     HXP.scene.remove(this);
