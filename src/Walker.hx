@@ -19,11 +19,10 @@ class Walker extends Enemy {
 
     spritemap = new Spritemap("gfx/walker.png", Constants.SIZE, Constants.SIZE);
     spritemap.add("left", [0, 1]);
-    spritemap.add("right", [0, 1]);
+    spritemap.add("right", [2, 3]);
     spritemap.play("left");
 
     this.graphic = spritemap;
-    this.wantsToShoot = false;
     this.type = "Walker";
     this.facing = 1;
   }
@@ -45,7 +44,6 @@ class Walker extends Enemy {
   }
 
   public override function update() {
-    HXP.log(facing * this.speed);
     this.moveBy(facing * this.speed, 0, ["wall"], true);
 
     super.update();

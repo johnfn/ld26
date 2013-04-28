@@ -30,6 +30,7 @@ class Enemy extends Entity {
 
     healthbar = new EnemyHealthbar(this);
     HXP.scene.add(healthbar);
+    HXP.scene.bringToFront(healthbar);
   }
 
   public function damage(amt:Int):Void {

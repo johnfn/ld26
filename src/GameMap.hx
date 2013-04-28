@@ -3,6 +3,11 @@ import com.haxepunk.Entity;
 import com.haxepunk.HXP;
 import com.haxepunk.masks.Grid;
 
+// Required or Haxe doesn't know what they are lol
+import Shooter;
+import Jumper;
+import Walker;
+
 class GameMap extends TmxEntity {
   public static var widthInTiles:Int = 20;
   public static var heightInTiles:Int = 20;
@@ -34,8 +39,6 @@ class GameMap extends TmxEntity {
     mapY = startY;
 
     switchMap(0, 0);
-
-    new Walker();
   }
 
   private function initializeType(t:String) {
@@ -73,8 +76,6 @@ class GameMap extends TmxEntity {
     // load layers named bottom, main, top with the appropriate tileset
     loadGraphicXY("gfx/tilesheet.png", ["collisions"], mapX, mapY);
     loadMaskXY("collisions", "wall", mapX, mapY);
-
-    var xx:Entity = new Jumper();
 
     for (t in dynItemTypes) {
       initializeType(t);

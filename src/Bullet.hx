@@ -37,7 +37,7 @@ class Bullet extends Entity {
 
     this.graphic = spritemap;
 
-    this.setHitbox(Std.int(bulletWidth/2), Std.int(bulletHeight/2), Std.int(bulletWidth/2), Std.int(bulletHeight/2));
+    this.setHitbox(Std.int(bulletWidth/2), Std.int(bulletHeight/2), 0, -Std.int(bulletHeight/2));
     this.sourceType = spawner.type;
 
     this.damage = damage;
@@ -54,7 +54,7 @@ class Bullet extends Entity {
     if (Constants.isEnemy(e.type)) {
       var en:Enemy = cast(e, Enemy);
       en.damage(this.damage);
-      HXP.scene.add(new FloatingText('-$damage', Std.int(en.x), Std.int(en.y)));
+      HXP.scene.add(new FloatingText('-*$damage*', Std.int(en.x), Std.int(en.y)));
 
       destroy();
     }
@@ -63,7 +63,7 @@ class Bullet extends Entity {
       var p:Player = cast(e, Player);
       p.damage(this.damage);
 
-      HXP.scene.add(new FloatingText('-$damage', Std.int(p.x), Std.int(p.y)));
+      HXP.scene.add(new FloatingText('-*$damage*', Std.int(p.x), Std.int(p.y)));
 
       destroy();
     }

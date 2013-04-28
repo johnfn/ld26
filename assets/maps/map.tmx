@@ -9,6 +9,9 @@
  <tileset firstgid="67" name="walker" tilewidth="25" tileheight="25">
   <image source="../graphics/walker.png" width="100" height="25"/>
  </tileset>
+ <tileset firstgid="71" name="shooter" tilewidth="25" tileheight="25">
+  <image source="../graphics/shooter.png" width="50" height="25"/>
+ </tileset>
  <layer name="collisions" width="100" height="100">
   <data encoding="base64" compression="zlib">
    eJzt0zEKACEMBMBUdvn/d4/rLK5SA5GbgcXOIsuOiBgFYY3b9aKPXir6yII//8I+erGPXuyjl5N95BTW7PZhX2e998zCxMcLAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHCDB2KDAkc=
@@ -26,7 +29,12 @@
  </layer>
  <layer name="Walker" width="100" height="100">
   <data encoding="base64" compression="zlib">
-   eJztzgENAAAIA6B3s38nY9xNSEACAABw37QDAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAC8sS4GAEQ=
+   eJztwTEBAAAAwqD1T+1lC6AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAbnEAAAQ==
+  </data>
+ </layer>
+ <layer name="Shooter" width="100" height="100">
+  <data encoding="base64" compression="zlib">
+   eJztzgENAAAIA6C3s38jY3w6SEDCN9MOAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAActnK5AEg=
   </data>
  </layer>
 </map>

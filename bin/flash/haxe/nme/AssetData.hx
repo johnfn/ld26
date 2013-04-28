@@ -54,6 +54,8 @@ class AssetData {
 			type.set ("gfx/minimap.png", Reflect.field (AssetType, "image".toUpperCase ()));
 			className.set ("gfx/player.png", nme.NME_gfx_player_png);
 			type.set ("gfx/player.png", Reflect.field (AssetType, "image".toUpperCase ()));
+			className.set ("gfx/shooter.png", nme.NME_gfx_shooter_png);
+			type.set ("gfx/shooter.png", Reflect.field (AssetType, "image".toUpperCase ()));
 			className.set ("gfx/tilesheet.png", nme.NME_gfx_tilesheet_png);
 			type.set ("gfx/tilesheet.png", Reflect.field (AssetType, "image".toUpperCase ()));
 			className.set ("gfx/treasure.png", nme.NME_gfx_treasure_png);
@@ -98,6 +100,7 @@ class NME_gfx_healthbar_png extends nme.display.BitmapData { public function new
 class NME_gfx_jumper_png extends nme.display.BitmapData { public function new () { super (0, 0); } }
 class NME_gfx_minimap_png extends nme.display.BitmapData { public function new () { super (0, 0); } }
 class NME_gfx_player_png extends nme.display.BitmapData { public function new () { super (0, 0); } }
+class NME_gfx_shooter_png extends nme.display.BitmapData { public function new () { super (0, 0); } }
 class NME_gfx_tilesheet_png extends nme.display.BitmapData { public function new () { super (0, 0); } }
 class NME_gfx_treasure_png extends nme.display.BitmapData { public function new () { super (0, 0); } }
 class NME_gfx_upgrade_boxes_png extends nme.display.BitmapData { public function new () { super (0, 0); } }

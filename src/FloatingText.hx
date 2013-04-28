@@ -8,6 +8,7 @@ import com.haxepunk.HXP;
 
 class FloatingText extends Entity {
   var text:FancyText;
+  var lifespan:Int = 180;
 
   public function new(content:String, x:Int, y:Int) {
     super();
@@ -18,9 +19,10 @@ class FloatingText extends Entity {
   }
 
   public override function update() {
-    this.text.y -= 5;
+    this.text.y -= 3;
+    --lifespan;
 
-    if (this.text.y < 0) {
+    if (this.text.y < 0 || lifespan < 0) {
       this.destroy();
     }
   }
