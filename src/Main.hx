@@ -2,13 +2,10 @@ import com.haxepunk.Engine;
 import com.haxepunk.HXP;
 import scenes.*;
 
-class Main extends Engine
-{
-
-	override public function init()
-	{
+class Main extends Engine {
+	override public function init() {
 #if debug
-		HXP.console.enable();
+		//HXP.console.enable();
 #end
 		HXP.scene = new MainScene();
     HXP.screen.color = 0xdddddd;
@@ -17,5 +14,4 @@ class Main extends Engine
 	public static function main() {
     new Main();
   }
-
 }

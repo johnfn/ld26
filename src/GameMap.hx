@@ -21,8 +21,12 @@ class GameMap extends TmxEntity {
   public var layers:Array<TmxEntity>;
   private var dynItemTypes:Array<String>;
 
+  public var backdrop:TmxEntity;
+
   public function new(startX:Int, startY:Int) {
     super(Constants.MAP, widthInTiles, heightInTiles);
+
+    backdrop = new TmxEntity(Constants.MAP, widthInTiles, heightInTiles);
 
     dynItemTypes = ["Treasure"];
 
@@ -69,6 +73,10 @@ class GameMap extends TmxEntity {
 
     mapX += dx;
     mapY += dy;
+
+    backdrop.loadGraphicXY("gfx/tilesheet.png", ["sky"], mapX, mapY);
+    HXP.scene.add(backdrop);
+
 
     // load layers named bottom, main, top with the appropriate tileset
     loadGraphicXY("gfx/tilesheet.png", ["collisions"], mapX, mapY);

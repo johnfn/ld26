@@ -52,7 +52,6 @@ class MainScene extends Scene {
 
   public override function update() {
     if (!paused) {
-      HXP.log("no longer paused");
       super.update();
 
       if (Input.released(Key.M)) {

@@ -10,5 +10,5 @@
 -D web
 -swf-version 11
 -swf bin/flash/bin/Main.swf
--swf-header 640:480:30:333333
+-swf-header 500:500:30:333333
 -cp bin/flash/haxe

@@ -12,14 +12,19 @@
  <tileset firstgid="71" name="shooter" tilewidth="25" tileheight="25">
   <image source="../graphics/shooter.png" width="50" height="25"/>
  </tileset>
+ <layer name="sky" width="100" height="100">
+  <data encoding="base64" compression="zlib">
+   eJzt0TENADAMwLDR2Dn+JAeiPXLYUhDkHGruYsz50eJHix8tfrS8xZjzo8UPAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADqPmHYEKE=
+  </data>
+ </layer>
  <layer name="collisions" width="100" height="100">
   <data encoding="base64" compression="zlib">
-   eJzt0zEKACEMBMBUdvn/d4/rLK5SA5GbgcXOIsuOiBgFYY3b9aKPXir6yII//8I+erGPXuyjl5N95BTW7PZhX2e998zCxMcLAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHCDB2KDAkc=
+   eJzt1cEKQFAQhtFZ2bG09/4vaUsoca/+dE5NZKN8dzJU1dBheMa3y6JHlh49xpNnS4f3/JH9yPLVfnDPF/uxXNxz1LLHuBmeedvD/6etqfbnuvXUyZVrc+PhHT2y6JFFjyx6ZNEjix5Z9MiiRxY9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADKtNAMT4g==
   </data>
  </layer>
  <layer name="Treasure" width="100" height="100">
   <data encoding="base64" compression="zlib">
-   eJztzkENAAAIxDBM8Ma/S2TAJa2AZVUAAAB/zPUAAAAAQKh+3gMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABIsrL2AEo=
+   eJztzjENAAAIAzBMcOPfJQkmxtEqaBUAAMAfkw4AAAAAcDodAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAhaVswANQ==
   </data>
  </layer>
  <layer name="Jumper" width="100" height="100">
