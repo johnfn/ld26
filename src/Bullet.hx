@@ -27,7 +27,13 @@ class Bullet extends Entity {
 
     var spritemap = new Spritemap("gfx/bullet.png", bulletWidth, bulletHeight);
     spritemap.add("normal", [0]); //note - not specifying a framerate currently
-    spritemap.play("normal");
+    spritemap.add("upwards", [1]); //note - not specifying a framerate currently
+
+    if (dirY == 0) {
+      spritemap.play("normal");
+    } else {
+      spritemap.play("upwards");
+    }
 
     this.graphic = spritemap;
 

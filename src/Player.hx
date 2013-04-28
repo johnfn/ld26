@@ -22,6 +22,7 @@ class Player extends Entity {
   private var vx = 0;
   private var vy = 0;
   private var facing:Int = 1;
+  private var facingUp:Int = 0;
 
   private var gunCooldown:Int = 10;
   private var gunCooldownMax:Int = 10;
@@ -54,7 +55,7 @@ class Player extends Entity {
       return false;
     }
 
-    if (e.type == "enemy") {
+    if (Constants.isEnemy(e.type)) {
       noMoveFlickerCountdown = 30;
       this.moveBy(-facing * 20, 0, "wall");
     }
@@ -84,7 +85,11 @@ class Player extends Entity {
   }
 
   private function shoot() {
-    HXP.scene.add(new Bullet(this, Std.random(5) + 2, this.facing * 10, 0));
+    if (facingUp == 1) {
+      HXP.scene.add(new Bullet(this, Std.random(5) + 2, 0, -10));
+    } else {
+      HXP.scene.add(new Bullet(this, Std.random(5) + 2, this.facing * 10, 0));
+    }
   }
 
   private function resetState() {
@@ -137,20 +142,21 @@ class Player extends Entity {
     if (noMoveFlickerCountdown > 0) {
       noMoveFlickerCountdown--;
       Constants.flicker(this, noMoveFlickerCountdown);
-      return;
     }
 
-    if (Input.check(Key.D)) {
+    if (Input.check(Key.RIGHT)) {
       vx += 6;
     }
 
-    if (Input.check(Key.A)) {
+    if (Input.check(Key.LEFT)) {
       vx -= 6;
     }
 
+    facingUp = Input.check(Key.UP) ? 1 : 0;
+
     if (vx != 0) this.facing = HXP.sign(vx);
 
-    if (Input.check(Key.SPACE)) {
+    if (Input.check(Key.Z)) {
       if (this.gunCooldown <= 0) {
         shoot();
         this.gunCooldown = this.gunCooldownMax;
@@ -164,27 +170,37 @@ class Player extends Entity {
     if (hitBottom) {
       vy = 0;
 
-      if (Input.check(Key.W)) {
+      if (Input.check(Key.X)) {
         vy -= 15;
       }
     }
 
     resetState(); // moveBy sets state via moveCollide{X,Y}
 
-    this.moveBy(vx, 0, ["wall", "enemy", "coin", "treasure"], true);
+    // a bit of redundant work
+    var collidables = ["wall", "coin", "treasure"];
+    collidables = collidables.concat(Constants.enemTypes());
+
+    if (noMoveFlickerCountdown <= 0) {
+      this.moveBy(vx, 0, collidables, true);
+    }
 
     checkLeftMap();
 
-    this.moveBy(0, vy, ["wall", "enemy", "coin", "treasure"], true);
+    this.moveBy(0, vy, collidables, true);
 
     checkLeftMap();
 
     super.update();
 
-    if (facing == -1) {
-      spritemap.play("left");
+    if (facingUp == 1) {
+      spritemap.play("up");
     } else {
-      spritemap.play("right");
+      if (facing == -1) {
+        spritemap.play("left");
+      } else {
+        spritemap.play("right");
+      }
     }
   }
 }
