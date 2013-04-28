@@ -25,7 +25,7 @@ class Coin extends Entity {
     this.graphic = spritemap;
   }
 
-  public function destroy(destroyer:Player) {
+  public function pickup(destroyer:Player) {
     if (!_destroyed) {
       _destroyed = true;
       destroyer.coins += this.value;
@@ -34,8 +34,7 @@ class Coin extends Entity {
       HXP.scene.add(t);
     }
 
-    HXP.scene.remove(this);
-    this.graphic = null;
+    destroy();
   }
 
   public override function update() {

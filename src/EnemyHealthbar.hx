@@ -38,9 +38,4 @@ class EnemyHealthbar extends Entity {
     this.x = follow.x;
     this.y = follow.y - 10;
   }
-
-  public function destroy() {
-    HXP.scene.remove(this);
-    this.graphic = null;
-  }
 }

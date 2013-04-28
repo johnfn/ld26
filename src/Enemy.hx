@@ -41,17 +41,11 @@ class Enemy extends Entity {
     return _maxHealth;
   }
 
-  public function destroy() {
+  public override function destroy() {
     HXP.scene.remove(this);
     this.graphic = null;
 
     healthbar.destroy();
-
-    var c:Coin = new Coin();
-    c.x = this.x;
-    c.y = this.y;
-
-    HXP.scene.add(c);
   }
 
   private function shoot() {
@@ -65,6 +59,12 @@ class Enemy extends Entity {
 
     if (dyingCount < 0) {
       destroy();
+
+      var c:Coin = new Coin();
+      c.x = this.x;
+      c.y = this.y;
+
+      HXP.scene.add(c);
     }
   }
 

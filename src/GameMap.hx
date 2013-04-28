@@ -14,9 +14,12 @@ class GameMap extends TmxEntity {
   public var mapY:Int = 0;
 
   public var layers:Array<TmxEntity>;
+  private var dynItemTypes:Array<String>;
 
   public function new(startX:Int, startY:Int) {
     super(Constants.MAP, widthInTiles, heightInTiles);
+
+    dynItemTypes = ["treasure", "enemy"];
 
     layers = [new TmxEntity(Constants.MAP, widthInTiles, heightInTiles)];
 
@@ -49,6 +52,17 @@ class GameMap extends TmxEntity {
   }
 
   public function switchMap(dx:Int, dy:Int) {
+    var ms:scenes.MainScene = cast(HXP.scene, scenes.MainScene);
+
+    for (t in dynItemTypes) {
+      var arr:Array<Entity> = [];
+      ms.getType(t, arr);
+
+      for (e in arr) {
+        e.destroy();
+      }
+    }
+
     mapX += dx;
     mapY += dy;
 

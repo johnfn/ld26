@@ -47,7 +47,7 @@ class Player extends Entity {
   private function genericCollision(e:Entity):Bool {
     if (e.type == "coin") {
       var c = cast(e, Coin);
-      c.destroy(this);
+      c.pickup(this);
 
       return false;
     }

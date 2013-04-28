@@ -63,11 +63,6 @@ class Bullet extends Entity {
     }
   }
 
-  public function destroy() {
-    HXP.scene.remove(this);
-    this.graphic = null;
-  }
-
   public override function moveCollideX(e:Entity):Bool {
     genericCollide(e);
 
