@@ -36,6 +36,7 @@ class Player extends Entity {
     spritemap.add("right", [0]); //note - not specifying a framerate currently
     spritemap.add("up", [1]);
     spritemap.add("left", [2]);
+    spritemap.add("crouch", [3]);
     spritemap.play("normal");
 
     this.graphic = spritemap;
@@ -85,8 +86,8 @@ class Player extends Entity {
   }
 
   private function shoot() {
-    if (facingUp == 1) {
-      HXP.scene.add(new Bullet(this, Std.random(5) + 2, 0, -10));
+    if (facingUp != 0) {
+      HXP.scene.add(new Bullet(this, Std.random(5) + 2, 0, this.facingUp * -10));
     } else {
       HXP.scene.add(new Bullet(this, Std.random(5) + 2, this.facing * 10, 0));
     }
@@ -152,7 +153,13 @@ class Player extends Entity {
       vx -= 6;
     }
 
-    facingUp = Input.check(Key.UP) ? 1 : 0;
+    if (Input.check(Key.UP)) {
+      facingUp = 1;
+    } else if (Input.check(Key.DOWN)) {
+      facingUp = -1;
+    } else {
+      facingUp = 0;
+    }
 
     if (vx != 0) this.facing = HXP.sign(vx);
 
@@ -193,8 +200,12 @@ class Player extends Entity {
 
     super.update();
 
-    if (facingUp == 1) {
-      spritemap.play("up");
+    if (facingUp != 0) {
+      if (facingUp > 0) {
+        spritemap.play("up");
+      } else {
+        spritemap.play("crouch");
+      }
     } else {
       if (facing == -1) {
         spritemap.play("left");
