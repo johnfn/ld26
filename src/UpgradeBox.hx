@@ -13,6 +13,8 @@ class UpgradeBox extends Entity {
   var costs:Array<Array<Int>>;
   var boughtLevel:Array<Int>;
 
+  public var showing:Bool = true;
+
   public static var MAX_UPGRADES:Int = 5;
 
   public var information:TextEntity;
@@ -23,6 +25,7 @@ class UpgradeBox extends Entity {
   private var selection:Int = 0;
   private var mainscene:scenes.MainScene;
   private var player:Player;
+  private var bgContainer:Entity;
 
   public function new(player:Player) {
     texts = [];
@@ -40,9 +43,9 @@ class UpgradeBox extends Entity {
     this.y = 100;
 
     var bgImg = new Image("gfx/upgradebox.png");
-    var container:Entity = new Entity();
-    container.addGraphic(bgImg);
-    HXP.scene.add(container);
+    bgContainer = new Entity();
+    bgContainer.addGraphic(bgImg);
+    HXP.scene.add(bgContainer);
 
     bgImg.x = this.x;
     bgImg.y = this.y;
@@ -117,11 +120,46 @@ class UpgradeBox extends Entity {
     }
   }
 
+  public function toggle() {
+    if (showing) {
+      for (t in texts) {
+        t.hide();
+      }
+
+      for (r in boxes) {
+        for (b in r) {
+          b.visible = false;
+        }
+      }
+
+      information.visible = false;
+      bgContainer.visible = false;
+      mainscene.unpause();
+    } else {
+      bgContainer.visible = true;
+      information.visible = true;
+
+      for (r in boxes) {
+        for (b in r) {
+          b.visible = true;
+        }
+      }
+
+      for (t in texts) {
+        t.show();
+        HXP.scene.bringToFront(t);
+      }
+
+      mainscene.pause(this);
+    }
+    showing = !showing;
+  }
+
   public override function update() {
     updateBoxes();
 
-    if (Input.pressed(Key.TAB)) {
-      mainscene.unpause();
+    if (Input.released(Key.TAB)) {
+      toggle();
     }
 
     super.update();
