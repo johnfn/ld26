@@ -139,7 +139,7 @@ class Player extends Entity {
 
   public function damage(amt:Int):Void {
     // temporary invinceability!
-    if (noMoveFlickerCountdown) {
+    if (noMoveFlickerCountdown > 0) {
       return;
     }
 
