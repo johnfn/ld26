@@ -149,8 +149,8 @@ class Player extends Entity {
   private function checkLeftMap() {
     var scene:scenes.MainScene = cast(HXP.scene, scenes.MainScene);
 
-    if (this.x >= scene.map.mapWidth) {
-      this.x -= scene.map.mapWidth;
+    if (this.x + this.width >= scene.map.mapWidth) {
+      this.x -= scene.map.mapWidth - this.width;
 
       scene.map.switchMap(1, 0);
       checkpoint();
@@ -158,15 +158,15 @@ class Player extends Entity {
     }
 
     if (this.x < 0) {
-      this.x += scene.map.mapWidth;
+      this.x += scene.map.mapWidth - this.width;
 
       scene.map.switchMap(-1, 0);
       checkpoint();
       return;
     }
 
-    if (this.y >= scene.map.mapHeight) {
-      this.y -= scene.map.mapHeight;
+    if (this.y + this.height >= scene.map.mapHeight) {
+      this.y -= scene.map.mapHeight - this.height;
 
       scene.map.switchMap(0, 1);
       checkpoint();
@@ -174,7 +174,7 @@ class Player extends Entity {
     }
 
     if (this.y < 0) {
-      this.y += scene.map.mapHeight;
+      this.y += scene.map.mapHeight - this.height;
 
       scene.map.switchMap(0, -1);
       checkpoint();
