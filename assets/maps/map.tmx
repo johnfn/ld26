@@ -22,7 +22,7 @@
  </layer>
  <layer name="collisions" width="100" height="100">
   <data encoding="base64" compression="zlib">
-   eJzt2sFunDAUQFFWWU3TTUk31fxH///HmqhF9SCMDWPDSzhHekoUCVDmyh4m5GUYhpcO8xm9VU6P1+tjxuHzvnY91PboRY9HesTSusftfb5X/HxqoMejs9bHWT2it3+2R249lOixzPqIpVeP0rpp2WPL8VftUZL2eH2fbwuz1vOWOaY0e/bWyesTx9Y6qsfa/dU9Mz9Xzvdj53HRRVgfeuzfR0t/G/q98fpRe+zdD8+cdD+9Dcv7a+59PXqP9Py/ZpO77lnTQtojt0eWeuw5bk26Ju7/zjX1uC98H2VaiNhjvub0OL7HfE2MyaQ97FfH9JiviTH5+jYc/9pescd8Tcx7zNdH9GkhvWdu2WMsHDcdm/4+a5+7Wu9Pa/eTe6b18+1xeNyba/V4P5+b1snV6BFLjx7ze6Lp3FuuoUc966MfPWLRIxY9YonQY+naetQr9cg9A97yHFePeqUeWz/nLq0pPerp0U+E948letTTo59cj7EwvenxX6mFHv3s2a+OoEf78z7jqj3O/j+y3Fy1R9TnoT16RD8fsegLAAAAAAAA8DVE/3+B6OcDAAAAAAAA4GuI/nw6+vkAAAAAAAAAgL/+AJotZLE=
+   eJzt2kFuwyAQhWFWWbnupk43le/R+1+sqVoUjMAMBMzY/J80ahUVrPhpMCm5GWNuDeqM7sJqcb9+azHnvXctSPNohTy2yEOX2nlMj3oXvG4zII+tXv3RKw/t2b+aR6wfUsgjjP7QpVUeqb6pmUfO+FHzSHHzmB/1Fqi9PKfImFSVrK3W/MJYqaPy2NtfrZH63Jnvo3Ccdhr6gzzK19HU/4a+M6+vNY/S9bBnzea5pk4mvL7Gnuva83Dn//Iqdt0a1YubR2yNTOVRMm6P2xPr/1w2jzXwO3k8tcjD77kr57G3v+qZh98Ti1NuHqxXx+Th98Ti/Lybtvdemkfp3mvK+Nueefg94efh90fPPI4673Tnr5nHkhhnx/rPiVjVXp/29pOraXcOKz3fXsx2bZZq8Tz32T65Mr/vyKOvo/Lw90R27pxrkIcc/VEHeehCHrqQhy5a8whdmzzkUnnEzoBzznHJQy6VR+7n5lBPkYccedSh9fkRQh5y5FFHTh5Lolojj+3r5NFerfXqCORR16vzjZpH7++RxWqEPHyp88va56G5c42Yx0hqv1/Jvie3AAAAAAAAAAAAAADn1+J8eqT5AAAAAAAAAAAAAADXoP18Wvt8AAAAAAAAAAAAAADgzw/5314+
   </data>
  </layer>
  <layer name="Treasure" width="100" height="100">
@@ -42,7 +42,7 @@
  </layer>
  <layer name="Shooter" width="100" height="100">
   <data encoding="base64" compression="zlib">
-   eJzt2gENAAAIw7C7w78jZBCgVTABS7impgMAAAAAAAAAgNe8CwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAwHYNNIcAjw==
+   eJzt2qENADAMA7A8s1v2/0fFpSOVOptHioKTsM2dLgAAAAAAAAAAfM13oTuPOTsCAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMCcAgt8APs=
   </data>
  </layer>
  <layer name="Ladder" width="100" height="100">
@@ -57,7 +57,7 @@
  </layer>
  <layer name="HealthPlus" width="100" height="100">
   <data encoding="base64" compression="zlib">
-   eJztxaENAAAIA7C9x/8P4afQpDVNAAAAAPhmagAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADuFn3xAJM=
+   eJzt1jENAAAIBLG3h39DrIQBAaRdzsIlAAAAAHxTqwAAk0cAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAALg1mzwA3A==
   </data>
  </layer>
  <layer name="Spike" width="100" height="100">

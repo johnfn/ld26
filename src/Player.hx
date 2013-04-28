@@ -63,7 +63,11 @@ class Player extends Entity {
     }
 
     if (Constants.isEnemy(e.type)) {
+      var en:Enemy = cast(e, Enemy);
       noMoveFlickerCountdown = 30;
+      if (en.touchDamage() > 0) {
+        this.damage(en.touchDamage());
+      }
       this.moveBy(-facing * 20, 0, "wall");
     }
 
@@ -134,16 +138,16 @@ class Player extends Entity {
   }
 
   private function checkpoint() {
-    enterScreenLocX = this.x;
-    enterScreenLocY = this.y;
+    if (this.collideTypes(Constants.enemTypes(), this.x, this.y) == null) {
+      var d = Std.random(999);
+      HXP.log('Checkpoint! $d');
+      enterScreenLocX = this.x;
+      enterScreenLocY = this.y;
+    }
   }
 
   private function checkLeftMap() {
     var scene:scenes.MainScene = cast(HXP.scene, scenes.MainScene);
-
-    if (scene.map.contains(this)) {
-      return;
-    }
 
     if (this.x >= scene.map.mapWidth) {
       this.x -= scene.map.mapWidth;
@@ -176,10 +180,6 @@ class Player extends Entity {
       checkpoint();
       return;
     }
-
-    // could prob throw an assert here...
-
-    HXP.log("uh oh.");
   }
 
   public override function update() {

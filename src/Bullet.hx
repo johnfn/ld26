@@ -55,7 +55,10 @@ class Bullet extends Entity {
     if (Constants.isEnemy(e.type)) {
       var en:Enemy = cast(e, Enemy);
       en.damage(this.damage);
-      HXP.scene.add(new FloatingText('-*$damage*', Std.int(en.x), Std.int(en.y)));
+
+      if (en.health() > 0) {
+        HXP.scene.add(new FloatingText('-*$damage*', Std.int(en.x), Std.int(en.y)));
+      }
 
       destroy();
     }
@@ -64,7 +67,7 @@ class Bullet extends Entity {
       var p:Player = cast(e, Player);
       p.damage(this.damage);
 
-      if (p.health > this.damage) {
+      if (p.health > 0) {
         HXP.scene.add(new FloatingText('-*$damage*', Std.int(p.x), Std.int(p.y)));
       }
 

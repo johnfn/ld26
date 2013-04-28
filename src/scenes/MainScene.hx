@@ -24,7 +24,7 @@ class MainScene extends Scene {
   }
 
   public override function begin() {
-    map = new GameMap(2, 0);
+    map = new GameMap(4, 0);
     HXP.scene.add(map);
 
     player = new Player();
