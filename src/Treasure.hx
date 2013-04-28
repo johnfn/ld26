@@ -15,7 +15,7 @@ class Treasure extends Entity {
     spritemap.play("normal");
 
     this.graphic = spritemap;
-    this.type = "treasure";
+    this.type = "Treasure";
     this.setHitbox(Constants.SIZE, Constants.SIZE);
   }
 

@@ -19,7 +19,7 @@ class GameMap extends TmxEntity {
   public function new(startX:Int, startY:Int) {
     super(Constants.MAP, widthInTiles, heightInTiles);
 
-    dynItemTypes = ["treasure", "enemy"];
+    dynItemTypes = ["Treasure", "Jumper"];
 
     layers = [new TmxEntity(Constants.MAP, widthInTiles, heightInTiles)];
 
@@ -32,17 +32,16 @@ class GameMap extends TmxEntity {
     switchMap(0, 0);
   }
 
-  private function initializeItems() {
-    // could be genericified if necessary
-
-    layers[0].loadMaskXY("treasure", "treasure", mapX, mapY);
+  private function initializeType(t:String) {
+    layers[0].loadMaskXY(t, t, mapX, mapY);
 
     var g:Grid = cast(layers[0].mask, Grid);
 
     for (i in 0...g.width) {
       for (j in 0...g.height) {
         if (g.getTile(i, j)) {
-          var t:Treasure = new Treasure();
+          HXP.log(t);
+          var t:Entity = Type.createInstance(Type.resolveClass(t), []);
           t.x = i * Constants.SIZE;
           t.y = j * Constants.SIZE;
           HXP.scene.add(t);
@@ -70,7 +69,11 @@ class GameMap extends TmxEntity {
     loadGraphicXY("gfx/tilesheet.png", ["collisions"], mapX, mapY);
     loadMaskXY("collisions", "wall", mapX, mapY);
 
-    initializeItems();
+    var xx:Entity = new Jumper();
+
+    for (t in dynItemTypes) {
+      initializeType(t);
+    }
   }
 
   public function contains(e:Entity):Bool {

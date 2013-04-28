@@ -3,19 +3,22 @@
  <tileset firstgid="1" name="tilesheet" tilewidth="25" tileheight="25">
   <image source="../graphics/tilesheet.png" width="200" height="200"/>
  </tileset>
+ <tileset firstgid="65" name="jumper" tilewidth="25" tileheight="25">
+  <image source="../graphics/jumper.png" width="50" height="25"/>
+ </tileset>
  <layer name="collisions" width="100" height="100">
   <data encoding="base64" compression="zlib">
    eJzt07kJADAMA8AsoP3XTWtIE9LkuwPhRgY3bg3gX9l9ABzMf8AoJfCKTGRlJ6VbJwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADADTpZswFT
   </data>
  </layer>
- <layer name="enemy" width="100" height="100">
-  <data encoding="base64" compression="zlib">
-   eJztwTEBAAAAwqD1T+1lC6AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAbnEAAAQ==
-  </data>
- </layer>
- <layer name="treasure" width="100" height="100">
+ <layer name="Treasure" width="100" height="100">
   <data encoding="base64" compression="zlib">
    eJztzkENAAAIxDBM8Ma/S2TAJa2AZVUAAAB/zPUAAAAAQKh+3gMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABIsrL2AEo=
+  </data>
+ </layer>
+ <layer name="Jumper" width="100" height="100">
+  <data encoding="base64" compression="zlib">
+   eJztzgENAAAIA6BXs38pY9xNSEACAABw37QDAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAC8sQ7vAEI=
   </data>
  </layer>
 </map>

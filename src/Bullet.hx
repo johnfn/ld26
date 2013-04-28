@@ -45,7 +45,7 @@ class Bullet extends Entity {
     // we guaranteed that bullets wont be blocked by their source shooter
     // down below so these checks are fine.
 
-    if (e.type == "enemy") {
+    if (Constants.isEnemy(e.type)) {
       var en:Enemy = cast(e, Enemy);
       en.damage(this.damage);
       HXP.scene.add(new FloatingText('-$damage', Std.int(en.x), Std.int(en.y)));
@@ -78,10 +78,12 @@ class Bullet extends Entity {
   public override function update() {
     var blockers:Array<String> = ["wall"];
 
-    if (this.sourceType == "enemy") {
+    if (Constants.isEnemy(this.sourceType)) {
       blockers.push("player");
     } else {
-      blockers.push("enemy");
+      for (t in Constants.enemTypes()) {
+        blockers.push(t);
+      }
     }
 
     this.moveBy(this.dirX, this.dirY, blockers);

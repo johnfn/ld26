@@ -6,6 +6,7 @@ import com.haxepunk.graphics.atlas.TileAtlas;
 import com.haxepunk.graphics.*;
 import com.haxepunk.HXP;
 
+// this class should not be initialized
 class Enemy extends Entity {
   var _health:Int = 20;
   var _maxHealth:Int = 20;
@@ -13,6 +14,8 @@ class Enemy extends Entity {
   var dyingCount:Int = 60;
   var dying:Bool = false;
   var facing:Int = 1;
+
+  public var wantsToShoot:Bool = true;
 
   public function new() {
     super();
@@ -49,7 +52,9 @@ class Enemy extends Entity {
   }
 
   private function shoot() {
-    HXP.scene.add(new Bullet(this, 1, this.facing * 10, 0));
+    if (wantsToShoot) {
+      HXP.scene.add(new Bullet(this, 1, this.facing * 10, 0));
+    }
   }
 
   public function slowlyDie() {

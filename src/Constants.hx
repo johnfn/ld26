@@ -8,4 +8,12 @@ class Constants {
   public static function flicker(e:Entity, count:Int) {
     e.visible = (Std.int(count / 5) % 2 == 0);
   }
+
+  public static function isEnemy(t:String) {
+    return (t == "Jumper");
+  }
+
+  public static function enemTypes():Array<String> {
+    return ["Jumper"];
+  }
 }
