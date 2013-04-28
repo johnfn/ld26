@@ -14,12 +14,12 @@
  </tileset>
  <layer name="sky" width="100" height="100">
   <data encoding="base64" compression="zlib">
-   eJztw8EJACAMBLBbo/66/5LFGXyokEA6SauqX9+WzyxVVVVVVfU4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA3DRTedz/
+   eJzt0bENgDAAA8GsAV0o2X9ARGmJ3gm6k34Be44xpiRJ2rrXqWU6JEmSJEmSJEmSPtpZezt/pPZ2/kjt7fyR2tv5I90/bGfXD9tZezt/pPZ2/kjt7fyR2tv5I7W380dqb+eP1N7OH6m9nT9Sezt/pPZ2/kjt7fwBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADrewCze1QZ
   </data>
  </layer>
  <layer name="collisions" width="100" height="100">
   <data encoding="base64" compression="zlib">
-   eJzt2sFugkAQBmBOnmp7KfZifP/HbBol3W5YVugCE/m+ZKIx2SHyOxCynrquO61QLOPcxSKPWNbI47xCz6MwH7GYj1jMRywt8zgnxTL/zcN8tfXe/f1dD/UxseatsKZWUz25uxXqa2LN58J11Mkjloh5LL0etqy9RMwj7X/NqnTc1rWXS6FqeSxZNyWdiduj15DHbeS9PH6tkUc+c/LYPo98Jvqk0jxcr7bJI5+JPnm9dNud+yPnkc9Enkc+H/JYnkdfWTesTb936fg/1fr61NdOxkxR+q1xP88Nc0KdPGKRRyzyiEUescgjFnnE0jqP68hn8nheLY/SHvCcfVx5PK+Wx9zn5rGZksfz5BGL+3ks8jgeecQij1jk0dbYM94cR81j7/+dleqoebTeD23ZK8p+6Fb9iEW+AAAAAAAAAK8h+v8FovcDAAAAAAAA4DVE35+O3g8AAAAAAAAAuPsGQzxGCQ==
+   eJzt2r1uwjAUgNFMTP1ZGrpUvP9jthVFWFYcJ6kdLnCOdNUuNiWfHFSFwzAMhw7DNq5dLHrEokcsesSyZw/t6/SIRY9Y/nuN1qzXo+7tZ14n5n1mzUthTW3m9uTsVJjPmTUfG9dRp0csEXtsvR+2nFuJ2CPd/yub0uu2nls5FqbWY8u6OemZOP3tdelxmvhdj6sePfIzp8f+PfIzMSaT9nC/2qdHfibG5Odx2O/aP3OP/EzkPfLzocf2HmNl3WVt+r5Lr/87re9PY+1irNRjv/TevFSPz/Opv631+70HesSiRyx6xKJHLHrEokcsEXpMvbYey9V6lJ4Br3mOq8dytR5r/2+eOlN6LKdHPxE+P6bosZwe/ZR6jJXpTY+rWgs9+tlyv9qDHu33/Y9n7XHr752V5ll7tH4e2nKve3i+yuPSFwAAAAAAAOAxRP++QPT9AAAAAAAAAHgM0Z9PR98PAAAAAAAAADj7BuMETNk=
   </data>
  </layer>
  <layer name="Treasure" width="100" height="100">
@@ -39,12 +39,12 @@
  </layer>
  <layer name="Shooter" width="100" height="100">
   <data encoding="base64" compression="zlib">
-   eJztzgENAAAIA6C3s38jY3w6SEDCN9MOAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAActnK5AEg=
+   eJzt2gENAAAIw7C7w78jZBCgVTABS7impgMAAAAAAAAAgNe8CwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAwHYNNIcAjw==
   </data>
  </layer>
  <layer name="Ladder" width="100" height="100">
   <data encoding="base64" compression="zlib">
-   eJzt0bEJACAAxEAncv/xrC0FwYB3EzyfMQAA4G/z9QA2erTo0aJHix4terTo0aJHix4tN3poeo8eLXq06NGiR4seLXq06NGiR4seLb5s0aNFjxY9WvRo0aNFjxY9WvQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA4NQCjEEG1Q==
+   eJzt0cEJwCAABEErSv/l+c4voJgFZyo4bscAAIC7PX8P4EWPFj1a9GjRo0WPFj1a9GjRo2VHD0330aNFjxY9WvRo0aNFjxY9WvRo0aPl1JeafaNHix4terTocSc9WvRo0aNFjxY9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgBUTBGoH6Q==
   </data>
  </layer>
  <layer name="signpost" width="100" height="100">
