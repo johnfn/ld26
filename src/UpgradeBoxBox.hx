@@ -16,8 +16,10 @@ class UpgradeBoxBox extends Entity {
 
   public var spritemap:Spritemap;
   public var cost:Int = 0;
+  public var upgrade:UpgradeBox;
+  public var upgradeType:Int;
 
-  public function new(status:Int, cost:Int) {
+  public function new(status:Int, cost:Int, upgrade:UpgradeBox, upType:Int) {
     super();
 
     spritemap = new Spritemap("gfx/upgrade-boxes.png", Constants.SIZE, Constants.SIZE);
@@ -32,6 +34,10 @@ class UpgradeBoxBox extends Entity {
     this.cost = cost;
 
     this.setHitbox(20, 25);
+
+    this.upgrade = upgrade;
+
+    this.upgradeType = upType;
   }
 
   public function setStatus(status:Int) {
@@ -45,7 +51,6 @@ class UpgradeBoxBox extends Entity {
   }
 
   public override function update() {
-
     if (Input.mouseReleased) {
       HXP.log(spritemap.currentAnim);
       if (this.collidePoint(this.x, this.y, Input.mouseX, Input.mouseY)) {
@@ -55,6 +60,8 @@ class UpgradeBoxBox extends Entity {
           HXP.log("You already did that bro.");
         } else if (spritemap.currentAnim == "buyable") {
           HXP.log("You can totally do that, bro");
+
+          upgrade.buy(this.upgradeType);
         } else {
           HXP.log("WAT (see UpgradeBoxBox)");
         }

@@ -57,22 +57,19 @@ class UpgradeBox extends Entity {
     HXP.scene.add(explainTextContainer);
 
     addBoxes();
+    updateBoxes();
+  }
+
+  public function buy(type:Int) {
+    //todo - check gold
+
+    boughtLevel[type]++;
   }
 
   private function addBoxes() {
     for (type in 0...texts.length) {
       for (level in 0...MAX_UPGRADES) {
-        var boxType:Int = 0;
-
-        if (level > boughtLevel[type] + 1) {
-          boxType = UpgradeBoxBox.IMPOSSIBLE;
-        } else if (level == boughtLevel[type] + 1) {
-          boxType = UpgradeBoxBox.BUYABLE;
-        } else {
-          boxType = UpgradeBoxBox.BOUGHT;
-        }
-
-        var box:UpgradeBoxBox = new UpgradeBoxBox(boxType, 5);
+        var box:UpgradeBoxBox = new UpgradeBoxBox(0, 5, this, type);
         HXP.scene.add(box);
 
         box.x = texts[type].x + 80 + level * 20;
@@ -84,6 +81,26 @@ class UpgradeBox extends Entity {
   }
 
   private function updateBoxes() {
+    for (type in 0...texts.length) {
+      for (level in 0...MAX_UPGRADES) {
+        var boxStatus:Int = 0;
 
+        if (level > boughtLevel[type] + 1) {
+          boxStatus = UpgradeBoxBox.IMPOSSIBLE;
+        } else if (level == boughtLevel[type] + 1) {
+          boxStatus = UpgradeBoxBox.BUYABLE;
+        } else {
+          boxStatus = UpgradeBoxBox.BOUGHT;
+        }
+
+        boxes[type][level].setStatus(boxStatus);
+      }
+    }
+  }
+
+  public override function update() {
+    updateBoxes();
+
+    super.update();
   }
 }
