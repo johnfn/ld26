@@ -22,6 +22,7 @@ class GameMap extends TmxEntity {
   private var dynItemTypes:Array<String>;
 
   public var backdrop:TmxEntity;
+  public var ladder:TmxEntity;
 
   public function new(startX:Int, startY:Int) {
     super(Constants.MAP, widthInTiles, heightInTiles);
