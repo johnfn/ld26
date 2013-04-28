@@ -8,8 +8,8 @@ import com.haxepunk.HXP;
 import Std;
 
 class Player extends Entity {
-  public var health:Int = 6;
-  public var totalHealth:Int = 6;
+  public var health:Int = 1;
+  public var totalHealth:Int = 1;
 
   public var coins:Int = 5;
 
@@ -28,6 +28,11 @@ class Player extends Entity {
   private var gunCooldownMax:Int = 10;
 
   private var noMoveFlickerCountdown:Int = 15;
+
+  private var enterScreenLocX:Float = 0;
+  private var enterScreenLocY:Float = 0;
+
+  private var diedAlready:Bool = false;
 
   public function new() {
     super();
@@ -81,8 +86,26 @@ class Player extends Entity {
     return genericCollision(e);
   }
 
+  public function die() {
+    this.health = this.totalHealth;
+    noMoveFlickerCountdown = 90;
+
+    this.x = enterScreenLocX;
+    this.y = enterScreenLocY;
+
+    if (!diedAlready) {
+      diedAlready = true;
+
+      HXP.scene.add(new DialogBox(["YOU DIE!!!", "Luckily, the only consequence of dying is a respawn."]));
+    }
+  }
+
   public function damage(amt:Int):Void {
     this.health -= amt;
+
+    if (this.health <= 0) {
+      die();
+    }
   }
 
   private function shoot() {
@@ -97,6 +120,11 @@ class Player extends Entity {
     hitBottom = false;
   }
 
+  private function checkpoint() {
+    enterScreenLocX = this.x;
+    enterScreenLocY = this.y;
+  }
+
   private function checkLeftMap() {
     var scene:scenes.MainScene = cast(HXP.scene, scenes.MainScene);
 
@@ -108,6 +136,7 @@ class Player extends Entity {
       this.x -= scene.map.mapWidth;
 
       scene.map.switchMap(1, 0);
+      checkpoint();
       return;
     }
 
@@ -115,6 +144,7 @@ class Player extends Entity {
       this.x += scene.map.mapWidth;
 
       scene.map.switchMap(-1, 0);
+      checkpoint();
       return;
     }
 
@@ -122,6 +152,7 @@ class Player extends Entity {
       this.y -= scene.map.mapHeight;
 
       scene.map.switchMap(0, 1);
+      checkpoint();
       return;
     }
 
@@ -129,6 +160,7 @@ class Player extends Entity {
       this.y += scene.map.mapHeight;
 
       scene.map.switchMap(0, -1);
+      checkpoint();
       return;
     }
 

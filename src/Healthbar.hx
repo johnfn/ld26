@@ -10,32 +10,39 @@ class Healthbar extends Entity {
   var boxes:Array<Entity>;
   private var healthSize:Int = 25;
   private var follow:Player;
+  private var numBoxes:Int = 0;
+  var boxY:Int = 0;
+  var boxX:Int = 0;
 
   public function new(x:Int, y:Int, follow:Player) {
     super();
 
     boxes = [];
 
-    for (i in 0...4) {
-      var box = new Entity();
-      var spritemap = new Spritemap("gfx/health.png", healthSize, healthSize);
-      spritemap.add("normal", [0]);
-      spritemap.add("half", [1]);
-      spritemap.add("gone", [2]);
-
-      box.graphic = spritemap;
-
-      spritemap.play("normal");
-
-      boxes.push(box);
-
-      box.x = x + i * 30;
-      box.y = y;
-
-      HXP.scene.add(box);
-    }
-
     this.follow = follow;
+    this.boxY = y;
+    this.boxX = x;
+  }
+
+  public function addBox() {
+    var box = new Entity();
+    var spritemap = new Spritemap("gfx/health.png", healthSize, healthSize);
+    spritemap.add("normal", [0]);
+    spritemap.add("half", [1]);
+    spritemap.add("gone", [2]);
+
+    box.graphic = spritemap;
+
+    spritemap.play("normal");
+
+    boxes.push(box);
+
+    box.x = this.boxX + numBoxes * 30;
+    box.y = this.boxY;
+
+    HXP.scene.add(box);
+
+    ++numBoxes;
   }
 
   public function setHealth(amt:Int, total:Int) {
@@ -54,7 +61,12 @@ class Healthbar extends Entity {
   }
 
   public override function update() {
+    while (follow.totalHealth > numBoxes * 2) {
+      addBox();
+    }
+
     setHealth(follow.health, follow.totalHealth);
+
     super.update();
   }
 }

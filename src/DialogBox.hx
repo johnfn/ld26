@@ -50,7 +50,7 @@ class DialogBox extends Entity {
     mainscene.pause(this);
   }
 
-  public function destroy() {
+  public override function destroy() {
     HXP.scene.remove(this.bg);
 
     HXP.scene.remove(this.nextDialogHolder);
