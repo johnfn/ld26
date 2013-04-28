@@ -13,7 +13,7 @@ class HealthPlus extends Entity {
     super();
 
     spritemap = new Spritemap("gfx/health.png", Constants.SIZE, Constants.SIZE);
-    spritemap.add("normal", [0]); //note - not specifying a framerate currently
+    spritemap.add("normal", [3]); //note - not specifying a framerate currently
     spritemap.play("normal");
 
     this.graphic = spritemap;
