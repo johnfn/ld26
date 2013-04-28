@@ -17,12 +17,12 @@
  </tileset>
  <layer name="sky" width="100" height="100">
   <data encoding="base64" compression="zlib">
-   eJzt0bENgDAAA8GsAV0o2X9ARGmJ3gm6k34Be44xpiRJ2rrXqWU6JEmSJEmSJEmSPtpZezt/pPZ2/kjt7fyR2tv5I90/bGfXD9tZezt/pPZ2/kjt7fyR2tv5I7W380dqb+eP1N7OH6m9nT9Sezt/pPZ2/kjt7fwBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADrewCze1QZ
+   eJzt0bFNxAAABEG3AdmTQfj9F4cITxCRrO2fkbaBu8dxHA9JknTpfrzrNL1JkiRJkiRJkiT90ZXV2/lj1dv5Y9Xb+WPV2/ljfd2wK/u4YVdWb+ePVW/nj1Vv549Vb+ePVW/nj1Vv549Vb+ePVW/nj1Vv549Vb+ePVW/nj1Vvd9dd/6ve3B+r3twfq97cH6ve3B+r3twfq97cH6ve3B+r3twfq97cH6ve3B+r3twf63nyXs3nyXs19d7+WPXe/lj13v5Y9d7+WPXe/lj13v5Y9d7+AAAAAAAAAAAAAAAAAAAAgN++ASotzVE=
   </data>
  </layer>
  <layer name="collisions" width="100" height="100">
   <data encoding="base64" compression="zlib">
-   eJzt2s1u4jAUQGGvWKV009ANynv0/V+sRG2Esfxz7fgml+R8kjVVNQ4zHNlAzMU5d1EY7+gmHBrP1zxG977PnQZpDy30eHW2Htbb9+4xPMan4PfL80KPV3utD3rEre2RWg8l9Ihjfdii1aO0bnr2qJl/1h4lfo/rY3xERq7nkJhTGi176+K6Yq7UVj1y76+mxPjOXO+rcZ51FtYHPdr30dK9oZ/Kx7fao3U/3HNc3XNPHVx8f029rlvv4V//HozU4/YYe/F7pPbIUo+WeTn+mpj+r7X0mCI/0+NJo0e45o7cI/f+as8e4ZoYveH3YL/apke4Jkbvz5vTfe6lPVrfew0Vf3fPHuGaCHuE62PPHludd/rX79ljLMxb5oavE6nRe3/KvZ+cnN45rPR8e3Sve7PU2v1K8ljLOjmycN3RY1/0sIUettDDlq17hJ/lah6LHnIa90tC9JDr3SP22PSQK/VInQHXnOPSQ67Uo/Zzc2xN0UOOHn1Yff2IoYccPfqo6TFmBj36kPbItaBHP+xXtmzZo+Z6MWft0fLdL0mPtd8vO0OP0PJaUPt5QXJe2+Ns9aw9atXc31377+tJ43q9x5l6vAN62EIPW+hhyxY9cue2uXNcesjn1PYISX5HD/kceujQ7hHuQ9Lfzeghn6N5P3HpQg/5nFyPtfeu6FE/R/t++4we8jn00EEPW+hhCz1sae2Rut9Bj3VaemyFHjb452VnY7VH7XdejqLn2e9d4Vq9/6+WrwcAAAAAAAAAAAAAOAbr59PWrwcAAAAAAAAAAAAAAP78Aj8QeKI=
+   eJzt2s1u4jAUQGGvWAHdNHSD8h59/xdrUWthLP9cJ77JJT6fZM2ImSQzHNmBuCfn3ElhvKObcGi8X48xufd97zRIe2ihx6vRelhv37vH+Xd8CF737ws9Xu01P+iRtrZHbj7U0CON+WGLVo/avOnZo+X4UXvUhD2uv+OSGKWe58wxtbFkbfWuK46V2qpH6fPVnBlfhfN9LjzOOgvzgx7L19Has6Hvxutb7bF0PdxzXN1zTT279Pqau69b7xGe/x6N3HV7jL2EPXJrZK3HkuNKwjkx/5/L95gTv6fHk0aPeM4duUfp89WePeI5MQUj7MF6tU2PeE5Mwa83p/veS3ss/ex1bvi7e/aI50TcI54fe/bYar8zPH/PHlPlOH9sfJ/Ijd7rU+nz5Oz09mGl+9uTe12bpdauV5Jr+XlyZPG8o8e+6GELPWyhhy1b94i/y7Vcix5yGs9LYvSQ690jdW16yNV65PaAW/Zx6SFX69H6vTk1p+ghR48+rN4/UughR48+WnpMhUGPPqQ9Si3o0Q/rlS1b9mg5X8qoPaTf2UKSHmt/vmyEHjF/L2jdW5bs1/bYWx21R6uW57tr/309aZyv9xipxzughy30sIUetmzRo7RvW9rHpYf8mNYeMclr9JAfQw8d2j3idUj62sPoPUr33/DPtJ8n+muN3EP6DOvi6j3WPruiR/sxzA8dFnt49JAfQw8d9LCFHrYs7ZF73kGPdZb02Ao9bAj3y0ZjtUfrz7wcRc+937vCuXr/Xy2fDwAAAAAAAAAAAABwDNb3p62fDwAAAAAAAAAAAAAA/PkB7gN49w==
   </data>
  </layer>
  <layer name="Treasure" width="100" height="100">
@@ -37,7 +37,7 @@
  </layer>
  <layer name="Walker" width="100" height="100">
   <data encoding="base64" compression="zlib">
-   eJzt2DERAEAIA0EEoeP9S8ICM1+EYlfBtUkVAAAAAPzpdAAAAAAAABDz0gEAAACcZTMCAAAAcJHfCgAAAAAAAAAAAAAAAAAAAAAAAADYGrcQAP8=
+   eJzt20EJADAMA8AKqo75lzQLgzLSx52CfBNIFQAAAADMdDoAAAAAAAAQc9IBAAAAWEtnBAAAAGDi13fRbgUAAAAAAAAAAAAAAAAAAAAAAAAAvLqpYgEr
   </data>
  </layer>
  <layer name="Shooter" width="100" height="100">
@@ -47,7 +47,7 @@
  </layer>
  <layer name="Ladder" width="100" height="100">
   <data encoding="base64" compression="zlib">
-   eJzt07ENgDAQBEEXQg30Xx4xGSAbVmKmgtetfgwAAPi3/esDONGjRY8WPVr0aNGjRY8WPVr0aJnRQ9N59GjRo0WPFj1a9GjRo8WWLXq06NHyVg/dr9GjRY8WPVr0+Cc9WvRo0aNFjzWe7qrHGnZt0aNFjxY9WvRo0aNFjxY9WvSAtfxYix4terTo0bENPWr0aNGjRY8WPVr0AAAAAAAAAAAAAAAAAAAAAAC45wDxbwsT
+   eJzt1bERwkAMAEE3QCv0Xx4JCQnYHiOO+d2ZzyVd8NsGAABru/96AF7o0aJHix4terTo0aJHix4terRc0UPT6+jRokeLHi16tOjRokeLW7bo0aJHy1QP3ffRo0WPFj1a9FiTHi16tOjRosd3nL2rHsfsvZe7ztCjRY8WPVr0aNGjRY8WPVr0aHHnlske2n+mx4ziv6DHe7fnm6JHS3GmKcXdizNNKe5enGlKcffiTFOKuxdnmlLcvTjTlJV3L9IDAAAAAAAAAAAAAAAAAAAAgH/xAD5aDzM=
   </data>
  </layer>
  <layer name="SIgnpost" width="100" height="100">
@@ -57,7 +57,7 @@
  </layer>
  <layer name="HealthPlus" width="100" height="100">
   <data encoding="base64" compression="zlib">
-   eJzt1jENAAAIBLG3h39DrIQBAaRdzsIlAAAAAHxTqwAAk0cAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAALg1mzwA3A==
+   eJztzgENAAAIA6DXs38hY9xNSEACAAAAAADAJ9MOAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAct7mLAEo=
   </data>
  </layer>
  <layer name="Spike" width="100" height="100">
