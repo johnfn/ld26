@@ -35,6 +35,8 @@ class Player extends Entity {
 
   private var diedAlready:Bool = false;
 
+  private var hasGun:Bool = false;
+
   public function new() {
     super();
 
@@ -52,6 +54,15 @@ class Player extends Entity {
     this.y = 50;
 
     this.type = "player";
+  }
+
+  private function openTreasure() {
+    var ms:scenes.MainScene = cast(HXP.scene, scenes.MainScene);
+
+    if (ms.map.mapX == 1 && ms.map.mapY == 0 && !hasGun) {
+      HXP.scene.add(new DialogBox(["You got *THE MINIMALIZER*!", "It allows you to minimalize the health of enemies.", "Simply apply the *x* key to perform shooting.", "I mean, to perform minimalization."]));
+      hasGun = true;
+    }
   }
 
   private function genericCollision(e:Entity):Bool {
@@ -74,6 +85,8 @@ class Player extends Entity {
     if (e.type == "Treasure") {
       var t:Treasure = cast(e, Treasure);
       t.open();
+
+      openTreasure();
     }
 
     if (e.type == "HealthPlus") {
@@ -125,10 +138,12 @@ class Player extends Entity {
   }
 
   private function shoot() {
-    if (facingUp != 0) {
-      HXP.scene.add(new Bullet(this, Std.random(5) + 2, 0, this.facingUp * -10));
-    } else {
-      HXP.scene.add(new Bullet(this, Std.random(5) + 2, this.facing * 10, 0));
+    if (hasGun) {
+      if (facingUp != 0) {
+        HXP.scene.add(new Bullet(this, Std.random(5) + 2, 0, this.facingUp * -10));
+      } else {
+        HXP.scene.add(new Bullet(this, Std.random(5) + 2, this.facing * 10, 0));
+      }
     }
   }
 
@@ -258,7 +273,7 @@ class Player extends Entity {
     resetState(); // moveBy sets state via moveCollide{X,Y}
 
     // a bit of redundant work
-    var collidables = ["wall", "coin", "treasure", "HealthPlus"];
+    var collidables = ["wall", "coin", "Treasure", "HealthPlus"];
     collidables = collidables.concat(Constants.enemTypes());
 
     if (noMoveFlickerCountdown <= 0) {

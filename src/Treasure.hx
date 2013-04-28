@@ -22,9 +22,4 @@ class Treasure extends Entity {
   public function open() {
     spritemap.play("open");
   }
-
-  public override function destroy() {
-    HXP.log("treasure destroyed!");
-    super.destroy();
-  }
 }

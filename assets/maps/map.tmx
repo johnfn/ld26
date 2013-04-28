@@ -22,7 +22,7 @@
  </layer>
  <layer name="collisions" width="100" height="100">
   <data encoding="base64" compression="zlib">
-   eJzt2kFuwyAQhWFWWbnupk43le/R+1+sqVoUjMAMBMzY/J80ahUVrPhpMCm5GWNuDeqM7sJqcb9+azHnvXctSPNohTy2yEOX2nlMj3oXvG4zII+tXv3RKw/t2b+aR6wfUsgjjP7QpVUeqb6pmUfO+FHzSHHzmB/1Fqi9PKfImFSVrK3W/MJYqaPy2NtfrZH63Jnvo3Ccdhr6gzzK19HU/4a+M6+vNY/S9bBnzea5pk4mvL7Gnuva83Dn//Iqdt0a1YubR2yNTOVRMm6P2xPr/1w2jzXwO3k8tcjD77kr57G3v+qZh98Ti1NuHqxXx+Th98Ti/Lybtvdemkfp3mvK+Nueefg94efh90fPPI4673Tnr5nHkhhnx/rPiVjVXp/29pOraXcOKz3fXsx2bZZq8Tz32T65Mr/vyKOvo/Lw90R27pxrkIcc/VEHeehCHrqQhy5a8whdmzzkUnnEzoBzznHJQy6VR+7n5lBPkYccedSh9fkRQh5y5FFHTh5Lolojj+3r5NFerfXqCORR16vzjZpH7++RxWqEPHyp88va56G5c42Yx0hqv1/Jvie3AAAAAAAAAAAAAADn1+J8eqT5AAAAAAAAAAAAAADXoP18Wvt8AAAAAAAAAAAAAADgzw/5314+
+   eJzt2k1uwyAQhmFWWbnupk43le/R+1+sqVorGPEzEDBj8z7SqFVUsOJPg0nJzRhza1BndBdWi/v1W4s5771rQZpHK+SxN1oe2rOvncf0qHfB69t9IY+9Xv1BHn6v5hHqhxTy8KM/dGmVR6pvauaRM37UPFLsPOZHvXkqlucUGJOqkrV1M78wVuqoPGL7qzVQn5H5PgrHaaehP8ijfB1N/W/oO/P6WvMoXQ971myea+pk/Otr6LmuPQ97/i+nQtetUb3YeYTWyFQeJeNi7J5Y/+fa8lg9v5PHU4s83J67ch6x/VXPPNyeWKyy82C9OiYPtycW6+fdtL330jxK915Txt/2zMPtCTcPtz965nHUeac9f808lsS4baz7nAhV7fUptp9cTbtzWOn59mL2a7NUi+e5a+uTK3P7jjz6OioPd0+0zZ1zDfKQoz/qIA9dyEMX8tBFax6+a5OHXCqP0Blwzjkuecil8sj93OzrKfKQI486tD4/fMhDjjzqyMljSVRr5LF/nTzaq7VeHYE86np1vlHz6P09slCNkIcrdX5Z+zw0d64R8xhJ7fcr2ffkFgAAAAAAAAAAAADg/FqcT480HwAAAAAAAAAAAADgGrSfT2ufDwAAAAAAAAAAAAAA/PkBBqdeSg==
   </data>
  </layer>
  <layer name="Treasure" width="100" height="100">
