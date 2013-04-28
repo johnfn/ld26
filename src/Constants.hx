@@ -10,10 +10,10 @@ class Constants {
   }
 
   public static function isEnemy(t:String) {
-    return (t == "Jumper");
+    return (Lambda.has(enemTypes(), t));
   }
 
   public static function enemTypes():Array<String> {
-    return ["Jumper"];
+    return ["Jumper", "Walker"];
   }
 }

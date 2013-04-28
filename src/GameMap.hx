@@ -19,7 +19,11 @@ class GameMap extends TmxEntity {
   public function new(startX:Int, startY:Int) {
     super(Constants.MAP, widthInTiles, heightInTiles);
 
-    dynItemTypes = ["Treasure", "Jumper"];
+    dynItemTypes = ["Treasure"];
+
+    for (e in Constants.enemTypes()) {
+      dynItemTypes.push(e);
+    }
 
     layers = [new TmxEntity(Constants.MAP, widthInTiles, heightInTiles)];
 
@@ -30,6 +34,8 @@ class GameMap extends TmxEntity {
     mapY = startY;
 
     switchMap(0, 0);
+
+    new Walker();
   }
 
   private function initializeType(t:String) {
