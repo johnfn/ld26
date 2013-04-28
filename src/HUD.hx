@@ -68,13 +68,13 @@ class HUD extends Entity {
 
     HXP.scene.add(coinTextShadowHolder);
     HXP.scene.add(coinTextHolder);
-
-    setGunType("Unarmed!");
   }
 
   public function setGunType(s:String) {
     gunText.text = 'Gun: $s';
     gunTextShadow.text = '{0,0,0}*Gun: $s*';
+
+    cast(gunIcon.graphic, Spritemap).play("2"); //quite a bit of a hack!
   }
 
   public override function update() {
