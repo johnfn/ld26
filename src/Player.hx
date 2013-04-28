@@ -19,8 +19,8 @@ class Player extends Entity {
 
   private var hitBottom:Bool = false;
 
-  private var vx = 0;
-  private var vy = 0;
+  private var vx:Float = 0;
+  private var vy:Float = 0;
   private var facing:Int = 1;
   private var facingUp:Int = 0;
 
@@ -172,14 +172,18 @@ class Player extends Entity {
 
     this.gunCooldown -= 1;
 
-    vy += 1;
+    vy += 0.5;
 
     if (hitBottom) {
       vy = 0;
 
       if (Input.check(Key.X)) {
-        vy -= 15;
+        vy -= 8;
       }
+    }
+
+    if (!Input.check(Key.X) && vy < 0) {
+      vy = 0;
     }
 
     resetState(); // moveBy sets state via moveCollide{X,Y}

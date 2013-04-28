@@ -42,19 +42,16 @@ class GameMap extends TmxEntity {
   }
 
   private function initializeType(t:String) {
-    layers[0].loadMaskXY(t, t, mapX, mapY);
+    var locs:Array<Array<Int>> = layers[0].getLocs(t, t, mapX, mapY);
 
-    var g:Grid = cast(layers[0].mask, Grid);
+    for (loc in locs) {
+      var locx:Int = loc[0];
+      var locy:Int = loc[1];
 
-    for (i in 0...g.width) {
-      for (j in 0...g.height) {
-        if (g.getTile(i, j)) {
-          var t:Entity = Type.createInstance(Type.resolveClass(t), []);
-          t.x = i * Constants.SIZE;
-          t.y = j * Constants.SIZE;
-          HXP.scene.add(t);
-        }
-      }
+      var t:Entity = Type.createInstance(Type.resolveClass(t), []);
+      t.x = locx * Constants.SIZE;
+      t.y = locy * Constants.SIZE;
+      HXP.scene.add(t);
     }
   }
 

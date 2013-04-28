@@ -68,6 +68,8 @@ class AssetData {
 			type.set ("gfx/walker.png", Reflect.field (AssetType, "image".toUpperCase ()));
 			className.set ("maps/map.tmx", nme.NME_maps_map_tmx);
 			type.set ("maps/map.tmx", Reflect.field (AssetType, "text".toUpperCase ()));
+			className.set ("sfx/ld26.mp3", nme.NME_sfx_ld26_mp3);
+			type.set ("sfx/ld26.mp3", Reflect.field (AssetType, "music".toUpperCase ()));
 			className.set ("font/04B_03__.ttf", nme.NME_font_5);
 			type.set ("font/04B_03__.ttf", Reflect.field (AssetType, "font".toUpperCase ()));
 			
@@ -107,4 +109,5 @@ class NME_gfx_upgrade_boxes_png extends nme.display.BitmapData { public function
 class NME_gfx_upgradebox_png extends nme.display.BitmapData { public function new () { super (0, 0); } }
 class NME_gfx_walker_png extends nme.display.BitmapData { public function new () { super (0, 0); } }
 class NME_maps_map_tmx extends nme.utils.ByteArray { }
+class NME_sfx_ld26_mp3 extends nme.media.Sound { }
 class NME_font_5 extends nme.text.Font { }
