@@ -172,18 +172,39 @@ class Player extends Entity {
 
     this.gunCooldown -= 1;
 
-    vy += 0.5;
+    if (this.collideTypes("Ladder", this.x, this.y) == null) {
+      // normal mode
+      vy += 0.5;
 
-    if (hitBottom) {
-      vy = 0;
+      if (hitBottom) {
+        vy = 0;
 
-      if (Input.check(Key.X)) {
+        if (Input.check(Key.X)) {
+          vy -= 8;
+        }
+      }
+
+      if (!Input.check(Key.X) && vy < 0) {
+        vy = 0;
+      }
+    } else {
+      // ladder mode
+      HXP.log("ladder!");
+
+      if (Input.check(Key.UP)) {
+        vy = -3;
+      } else if (Input.check(Key.DOWN)) {
+        vy = 3;
+      } else {
+        vy = 0;
+      }
+
+      HXP.log(vy);
+
+      if (Input.check(Key.X) && vy >= -3) {
         vy -= 8;
       }
-    }
-
-    if (!Input.check(Key.X) && vy < 0) {
-      vy = 0;
+      hitBottom = false;
     }
 
     resetState(); // moveBy sets state via moveCollide{X,Y}

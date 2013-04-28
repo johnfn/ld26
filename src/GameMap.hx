@@ -5,6 +5,7 @@ import com.haxepunk.masks.Grid;
 
 // Required or Haxe doesn't know what they are lol
 import Shooter;
+import Ladder;
 import Jumper;
 import Walker;
 
@@ -29,7 +30,7 @@ class GameMap extends TmxEntity {
 
     backdrop = new TmxEntity(Constants.MAP, widthInTiles, heightInTiles);
 
-    dynItemTypes = ["Treasure"];
+    dynItemTypes = ["Treasure", "Ladder"];
 
     for (e in Constants.enemTypes()) {
       dynItemTypes.push(e);
