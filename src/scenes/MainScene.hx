@@ -37,13 +37,6 @@ class MainScene extends Scene {
 
     add(minimap);
 
-    var e:Enemy = new Enemy();
-
-    e.x = 200;
-    e.y = 200;
-
-    add(e);
-
     //add(new DialogBox(["Yayaya", "You passed the test!", "And by you, I mean me."]));
     add(new UpgradeBox(player));
   }

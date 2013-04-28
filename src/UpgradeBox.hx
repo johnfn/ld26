@@ -67,8 +67,7 @@ class UpgradeBox extends Entity {
 
     addBoxes();
     updateBoxes();
-
-    mainscene.pause(this);
+    toggle();
   }
 
   public function notify(str:String) {
