@@ -11,6 +11,7 @@ class Main extends Engine
 		HXP.console.enable();
 #end
 		HXP.scene = new MainScene();
+    HXP.screen.color = 0xdddddd;
 	}
 
 	public static function main() {

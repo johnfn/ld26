@@ -36,11 +36,11 @@ class HUD extends Entity {
     healthbar = new Healthbar(50, 50, p);
     HXP.scene.add(healthbar);
 
-    gunText = new FancyText("Gun:{255,0,0} *DerpGun*", 50, 85);
+    gunText = new FancyText("Gun:{255,195,195} *DerpGun*", 50, 85);
     textHolder = new Entity();
     textHolder.graphic = gunText;
 
-    gunTextShadow = new FancyText("{0,0,0}*Gun: DerpGun*", gunText.x + 3, gunText.y + 3);
+    gunTextShadow = new FancyText("{0,0,0}*Gun: DerpGun*", gunText.x + 2, gunText.y + 2);
     textShadowHolder = new Entity();
     textShadowHolder.graphic = gunTextShadow;
     HXP.scene.add(textShadowHolder);
@@ -63,7 +63,7 @@ class HUD extends Entity {
     coinTextHolder = new Entity();
     coinTextHolder.graphic = coinText;
 
-    coinTextShadow = new FancyText("Coins: 0", HXP.width - 100 + 3, 50 + 3, 100, 50, {align: nme.text.TextFormatAlign.RIGHT, color: 0});
+    coinTextShadow = new FancyText("Coins: 0", HXP.width - 100 + 2, 50 + 2, 100, 50, {align: nme.text.TextFormatAlign.RIGHT, color: 0});
     coinTextShadowHolder = new Entity();
     coinTextShadowHolder.graphic = coinTextShadow;
 
