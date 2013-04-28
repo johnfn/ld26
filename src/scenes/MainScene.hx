@@ -37,7 +37,7 @@ class MainScene extends Scene {
 
     add(minimap);
 
-    //add(new DialogBox(["Yayaya", "You passed the test!", "And by you, I mean me."]));
+    add(new DialogBox(["You come to!", "You have no idea how you got here, but you're seized with the desire to minimalize the number of enemies in the world.", "But you are such a minimalistic person, you don't even own a gun...", "So your desire may have to wait.", "*Arrow keys* to move and *X* to jump."]));
     add(new UpgradeBox(player));
   }
 

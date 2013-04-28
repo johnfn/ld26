@@ -11,7 +11,7 @@ class Player extends Entity {
   public var health:Int = 1;
   public var totalHealth:Int = 1;
 
-  public var coins:Int = 5;
+  public var coins:Int = 0;
 
   private var spritemap:Spritemap;
   private var playerWidth:Int = 25;
@@ -60,8 +60,12 @@ class Player extends Entity {
     var ms:scenes.MainScene = cast(HXP.scene, scenes.MainScene);
 
     if (ms.map.mapX == 1 && ms.map.mapY == 0 && !hasGun) {
-      HXP.scene.add(new DialogBox(["You got *THE MINIMALIZER*!", "It allows you to minimalize the health of enemies.", "Simply apply the *x* key to perform shooting.", "I mean, to perform minimalization."]));
+      HXP.scene.add(new DialogBox(["You got *THE MINIMALIZER*!", "It allows you to minimalize the health of enemies.", "Simply apply the *z* key to perform shooting.", "I mean, to perform minimalization."]));
       hasGun = true;
+
+
+      var ms:scenes.MainScene = cast(HXP.scene, scenes.MainScene);
+      ms.hud.setGunType("Minimalizer")  ;
     }
   }
 
