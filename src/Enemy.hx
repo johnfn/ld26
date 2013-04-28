@@ -52,7 +52,7 @@ class Enemy extends Entity {
     healthbar.destroy();
   }
 
-  private function shoot() {
+  public function shoot() {
     if (wantsToShoot) {
       HXP.scene.add(new Bullet(this, 1, this.facing * 10, 0));
     }
