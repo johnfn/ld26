@@ -31,7 +31,7 @@ class Bullet extends Entity {
 
     this.graphic = spritemap;
 
-    this.setHitbox(bulletWidth, bulletHeight); // prob unfair
+    this.setHitbox(Std.int(bulletWidth/2), Std.int(bulletHeight/2), Std.int(bulletWidth/2), Std.int(bulletHeight/2));
     this.sourceType = spawner.type;
 
     this.damage = damage;
