@@ -51,20 +51,23 @@ class UpgradeBoxBox extends Entity {
   }
 
   public override function update() {
-    if (Input.mouseReleased) {
-      HXP.log(spritemap.currentAnim);
-      if (this.collidePoint(this.x, this.y, Input.mouseX, Input.mouseY)) {
+    if (this.collidePoint(this.x, this.y, Input.mouseX, Input.mouseY)) {
+      if (Input.mouseReleased) {
         if (spritemap.currentAnim == "impossible") {
-          HXP.log("You can't do that bro.");
+          upgrade.notify("You can't do that bro.");
         } else if (spritemap.currentAnim == "bought") {
-          HXP.log("You already did that bro.");
+          upgrade.notify("You already did that, bro.");
         } else if (spritemap.currentAnim == "buyable") {
-          HXP.log("You can totally do that, bro");
-
-          upgrade.buy(this.upgradeType);
+          if (upgrade.buy(this.upgradeType)) {
+            upgrade.notify("Upgrade bought!");
+          } else {
+            upgrade.notify("Too expensive. :(");
+          }
         } else {
           HXP.log("WAT (see UpgradeBoxBox)");
         }
+      } else if (spritemap.currentAnim != "bought") {
+        upgrade.notify('Costs $cost gold.');
       }
     }
   }

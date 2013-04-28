@@ -10,19 +10,29 @@ import Std;
 class UpgradeBox extends Entity {
   var texts:Array<TextEntity>;
   var boxes:Array<Array<UpgradeBoxBox>>;
+  var costs:Array<Array<Int>>;
   var boughtLevel:Array<Int>;
 
   public static var MAX_UPGRADES:Int = 5;
+
+  public var information:TextEntity;
 
   private var imgWidth:Int  = 400;
   private var imgHeight:Int = 200;
 
   private var selection:Int = 0;
+  private var mainscene:scenes.MainScene;
+  private var player:Player;
 
-  public function new() {
+  public function new(player:Player) {
     texts = [];
+    costs = [[1,2,3,4,5], [2,4,6,8,10]];
     boxes = [for (x in 0...2) []];
     boughtLevel = [0, 3];
+
+    this.player = player;
+
+    mainscene = cast(HXP.scene, scenes.MainScene);
 
     super();
 
@@ -49,27 +59,36 @@ class UpgradeBox extends Entity {
 
     texts.push(d2);
 
-    var explainText = new FancyText("Click on {0,255,0}*green* boxes to buy that upgrade.");
-    explainText.x = this.x;
-    explainText.y = this.y;
-    var explainTextContainer:Entity = new Entity();
-    explainTextContainer.graphic = explainText;
-    HXP.scene.add(explainTextContainer);
+    this.information = new TextEntity("Click on {0,255,0}*green* boxes to buy that upgrade.", this.x, this.y);
+    HXP.scene.add(this.information);
 
     addBoxes();
     updateBoxes();
+
+    mainscene.pause(this);
   }
 
-  public function buy(type:Int) {
-    //todo - check gold
+  public function notify(str:String) {
+    this.information.txt.text = str;
+  }
 
-    boughtLevel[type]++;
+  // true if you can buy it, false if it failed.
+  public function buy(type:Int):Bool {
+    var cost:Int = costs[type][boughtLevel[type] + 1];
+
+    if (player.coins >= cost) {
+      boughtLevel[type]++;
+      player.coins -= cost;
+      return true;
+    } else {
+      return false;
+    }
   }
 
   private function addBoxes() {
     for (type in 0...texts.length) {
       for (level in 0...MAX_UPGRADES) {
-        var box:UpgradeBoxBox = new UpgradeBoxBox(0, 5, this, type);
+        var box:UpgradeBoxBox = new UpgradeBoxBox(0, costs[type][level], this, type);
         HXP.scene.add(box);
 
         box.x = texts[type].x + 80 + level * 20;
@@ -101,6 +120,18 @@ class UpgradeBox extends Entity {
   public override function update() {
     updateBoxes();
 
+    if (Input.pressed(Key.TAB)) {
+      mainscene.unpause();
+    }
+
     super.update();
+
+    for (row in boxes) {
+      for (up in row) {
+        up.update();
+      }
+    }
+
+    this.mainscene.hud.update();
   }
 }

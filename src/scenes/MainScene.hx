@@ -13,6 +13,7 @@ class MainScene extends Scene {
   //public var mapEntity:TmxEntity;
   public var player:Player;
   public var minimap:Minimap;
+  public var hud:HUD;
 
   public var paused:Bool = false;
 
@@ -29,7 +30,8 @@ class MainScene extends Scene {
     player = new Player();
     add(player);
 
-    add(new HUD(player));
+    hud = new HUD(player);
+    add(hud);
 
     minimap = new Minimap(150, 150);
 
@@ -43,7 +45,7 @@ class MainScene extends Scene {
     add(e);
 
     //add(new DialogBox(["Yayaya", "You passed the test!", "And by you, I mean me."]));
-    add(new UpgradeBox());
+    add(new UpgradeBox(player));
   }
 
   public function pause(pauser:Entity) {
