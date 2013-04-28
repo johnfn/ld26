@@ -103,6 +103,9 @@ class Player extends Entity {
 
       HXP.scene.add(new DialogBox(["YOU DIE!!!", "Luckily, the only consequence of dying is a respawn."]));
     }
+
+    var ms:scenes.MainScene = cast(HXP.scene, scenes.MainScene);
+    ms.map.respawnAllEnemies();
   }
 
   public function damage(amt:Int):Void {

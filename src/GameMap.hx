@@ -62,6 +62,24 @@ class GameMap extends TmxEntity {
     }
   }
 
+  public function respawnAllEnemies() {
+    var enemyTypes:Array<String> = Constants.enemTypes();
+    var ms:scenes.MainScene = cast(HXP.scene, scenes.MainScene);
+
+    for (t in enemyTypes) {
+      var arr:Array<Entity> = [];
+      ms.getType(t, arr);
+
+      for (e in arr) {
+        e.destroy();
+      }
+    }
+
+    for (t in enemyTypes) {
+      initializeType(t);
+    }
+  }
+
   public function switchMap(dx:Int, dy:Int) {
     var ms:scenes.MainScene = cast(HXP.scene, scenes.MainScene);
     var removeItemTypes = dynItemTypes.concat(["bullet"]);
