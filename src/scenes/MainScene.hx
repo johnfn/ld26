@@ -42,7 +42,8 @@ class MainScene extends Scene {
 
     add(e);
 
-    add(new DialogBox(["Yayaya", "You passed the test!", "And by you, I mean me."]));
+    //add(new DialogBox(["Yayaya", "You passed the test!", "And by you, I mean me."]));
+    add(new UpgradeBox());
   }
 
   public function pause(pauser:Entity) {
