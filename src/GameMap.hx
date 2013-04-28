@@ -63,8 +63,9 @@ class GameMap extends TmxEntity {
 
   public function switchMap(dx:Int, dy:Int) {
     var ms:scenes.MainScene = cast(HXP.scene, scenes.MainScene);
+    var removeItemTypes = dynItemTypes.concat(["bullet"]);
 
-    for (t in dynItemTypes) {
+    for (t in removeItemTypes) {
       var arr:Array<Entity> = [];
       ms.getType(t, arr);
 
@@ -78,7 +79,6 @@ class GameMap extends TmxEntity {
 
     backdrop.loadGraphicXY("gfx/tilesheet.png", ["sky"], mapX, mapY);
     HXP.scene.add(backdrop);
-
 
     // load layers named bottom, main, top with the appropriate tileset
     loadGraphicXY("gfx/tilesheet.png", ["collisions"], mapX, mapY);

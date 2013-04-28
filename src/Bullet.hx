@@ -41,6 +41,7 @@ class Bullet extends Entity {
     this.sourceType = spawner.type;
 
     this.damage = damage;
+    this.type = "bullet";
   }
 
   function genericCollide(e:Entity) {

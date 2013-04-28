@@ -44,7 +44,9 @@ class Walker extends Enemy {
   }
 
   public override function update() {
-    this.moveBy(facing * this.speed, 0, ["wall"], true);
+    if (health() > 0) {
+      this.moveBy(facing * this.speed, 0, ["wall"], true);
+    }
 
     super.update();
   }
