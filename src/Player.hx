@@ -32,7 +32,9 @@ class Player extends Entity {
     super();
 
     spritemap = new Spritemap("gfx/player.png", playerWidth, playerHeight);
-    spritemap.add("normal", [0]); //note - not specifying a framerate currently
+    spritemap.add("right", [0]); //note - not specifying a framerate currently
+    spritemap.add("up", [1]);
+    spritemap.add("left", [2]);
     spritemap.play("normal");
 
     this.graphic = spritemap;
@@ -178,5 +180,11 @@ class Player extends Entity {
     checkLeftMap();
 
     super.update();
+
+    if (facing == -1) {
+      spritemap.play("left");
+    } else {
+      spritemap.play("right");
+    }
   }
 }

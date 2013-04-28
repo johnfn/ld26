@@ -58,7 +58,6 @@ class HUD extends Entity {
 
     HXP.scene.add(gunIcon);
 
-    HXP.log(HXP.width);
     coinText = new FancyText("Coins: 0", HXP.width - 100, 50, 100, 50, {align: nme.text.TextFormatAlign.RIGHT, color: 0xffffff});
     coinTextHolder = new Entity();
     coinTextHolder.graphic = coinText;

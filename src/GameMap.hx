@@ -40,7 +40,6 @@ class GameMap extends TmxEntity {
     for (i in 0...g.width) {
       for (j in 0...g.height) {
         if (g.getTile(i, j)) {
-          HXP.log(t);
           var t:Entity = Type.createInstance(Type.resolveClass(t), []);
           t.x = i * Constants.SIZE;
           t.y = j * Constants.SIZE;

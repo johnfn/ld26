@@ -44,8 +44,6 @@ class DialogBox extends Entity {
 
     HXP.scene.add(nextDialogHolder);
 
-    HXP.log('here it is ${imgWidth}');
-    HXP.log('here it is ${this.textbox.width}');
     this.graphic = textbox;
 
     mainscene = cast(HXP.scene, scenes.MainScene);
