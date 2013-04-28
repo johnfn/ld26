@@ -10,7 +10,7 @@ class HUD extends Entity {
   private var player:Player;
 
   // healthbar
-  private var healthbar:Healthbar;
+  public var healthbar:Healthbar;
 
   // gun text & shadow
   private var gunText:FancyText;

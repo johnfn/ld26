@@ -12,6 +12,9 @@
  <tileset firstgid="71" name="shooter" tilewidth="25" tileheight="25">
   <image source="../graphics/shooter.png" width="50" height="25"/>
  </tileset>
+ <tileset firstgid="73" name="health" tilewidth="25" tileheight="25">
+  <image source="../graphics/health.png" width="100" height="25"/>
+ </tileset>
  <layer name="sky" width="100" height="100">
   <data encoding="base64" compression="zlib">
    eJzt0bENgDAAA8GsAV0o2X9ARGmJ3gm6k34Be44xpiRJ2rrXqWU6JEmSJEmSJEmSPtpZezt/pPZ2/kjt7fyR2tv5I90/bGfXD9tZezt/pPZ2/kjt7fyR2tv5I7W380dqb+eP1N7OH6m9nT9Sezt/pPZ2/kjt7fwBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADrewCze1QZ
@@ -50,6 +53,11 @@
  <layer name="signpost" width="100" height="100">
   <data encoding="base64" compression="zlib">
    eJzt1jENAAAIBLHf8O8YEQxA0iq48RIAAAAAvqvtAACAQ7wRAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADDV7e0ADw==
+  </data>
+ </layer>
+ <layer name="HealthPlus" width="100" height="100">
+  <data encoding="base64" compression="zlib">
+   eJztxaENAAAIA7C9x/8P4afQpDVNAAAAAPhmagAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADuFn3xAJM=
   </data>
  </layer>
 </map>

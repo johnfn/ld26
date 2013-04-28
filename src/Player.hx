@@ -66,9 +66,14 @@ class Player extends Entity {
       this.moveBy(-facing * 20, 0, "wall");
     }
 
-    if (e.type == "treasure") {
+    if (e.type == "Treasure") {
       var t:Treasure = cast(e, Treasure);
       t.open();
+    }
+
+    if (e.type == "HealthPlus") {
+      var h:HealthPlus = cast(e, HealthPlus);
+      h.get(this);
     }
 
     return true;
@@ -242,7 +247,7 @@ class Player extends Entity {
     resetState(); // moveBy sets state via moveCollide{X,Y}
 
     // a bit of redundant work
-    var collidables = ["wall", "coin", "treasure"];
+    var collidables = ["wall", "coin", "treasure", "HealthPlus"];
     collidables = collidables.concat(Constants.enemTypes());
 
     if (noMoveFlickerCountdown <= 0) {

@@ -30,7 +30,7 @@ class GameMap extends TmxEntity {
 
     backdrop = new TmxEntity(Constants.MAP, widthInTiles, heightInTiles);
 
-    dynItemTypes = ["Treasure", "Ladder"];
+    dynItemTypes = ["Treasure", "Ladder", "HealthPlus"];
 
     for (e in Constants.enemTypes()) {
       dynItemTypes.push(e);
