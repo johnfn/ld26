@@ -22,7 +22,7 @@
  </layer>
  <layer name="collisions" width="100" height="100">
   <data encoding="base64" compression="zlib">
-   eJzt2ktPwkAYhtGuWHnZWNwY/v/P1ESJtWk7pc6UFzgn+aKbGS5POoSUQ9d1hwZzi44rp6Vbfe9a0COLHln0yPJoPdLb65FFjyz30OOS9XqUvXzN88S8Lqx5mllTmqU9EyT0OM3M+8Kat43r0umRYes52uL8Teyx9Ty8xtSW2GO4/8do5h73WlPb3BlZ6rFl3ZLhNXH62evc4zTxf8rUltJjfM3psX+P8TXRD2bYw3m1T4/xNdEP/h67/d/bR+wxvibGPcbXR/rUVrNHX1h3Xjt8PUvfu2qfT32D/Wrqu79n81otPs+nnlvt13sL9MiiRxY9suiRRY8semRJ6DH12HqsV+oxdw/4kvu4eqxX6nHp99ypa0qP9fRoJ+HzY4oe6+nRzlyPvjCt6fGr1EKPdracV3vQo/6+//GoPa79e7K5edQeqfdDW/RI348s+gIAAAAAAADch/TfC6TvBwAAAAAAAMB9SL8/nb4fAAAAAAAAAPDtE2SDYB0=
+   eJzt2sFunDAUQFFWWU3TTUk31fxH///HmqhF9SCMDWPDSzhHekoUCVDmyh4m5GUYhpcO8xm9VU6P1+tjxuHzvnY91PboRY9HesTSusftfb5X/HxqoMejs9bHWT2it3+2R249lOixzPqIpVeP0rpp2WPL8VftUZL2eH2fbwuz1vOWOaY0e/bWyesTx9Y6qsfa/dU9Mz9Xzvdj53HRRVgfeuzfR0t/G/q98fpRe+zdD8+cdD+9Dcv7a+59PXqP9Py/ZpO77lnTQtojt0eWeuw5bk26Ju7/zjX1uC98H2VaiNhjvub0OL7HfE2MyaQ97FfH9JiviTH5+jYc/9pescd8Tcx7zNdH9GkhvWdu2WMsHDcdm/4+a5+7Wu9Pa/eTe6b18+1xeNyba/V4P5+b1snV6BFLjx7ze6Lp3FuuoUc966MfPWLRIxY9YonQY+naetQr9cg9A97yHFePeqUeWz/nLq0pPerp0U+E948letTTo59cj7EwvenxX6mFHv3s2a+OoEf78z7jqj3O/j+y3Fy1R9TnoT16RD8fsegLAAAAAAAA8DVE/3+B6OcDAAAAAAAA4GuI/nw6+vkAAAAAAAAAgL/+AJotZLE=
   </data>
  </layer>
  <layer name="Treasure" width="100" height="100">
@@ -50,7 +50,7 @@
    eJzt0cEJwCAABEErSv/l+c4voJgFZyo4bscAAIC7PX8P4EWPFj1a9GjRo0WPFj1a9GjRo2VHD0330aNFjxY9WvRo0aNFjxY9WvRo0aPl1JeafaNHix4terTocSc9WvRo0aNFjxY9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgBUTBGoH6Q==
   </data>
  </layer>
- <layer name="signpost" width="100" height="100">
+ <layer name="SIgnpost" width="100" height="100">
   <data encoding="base64" compression="zlib">
    eJzt1jENAAAIBLHf8O8YEQxA0iq48RIAAAAAvqvtAACAQ7wRAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADDV7e0ADw==
   </data>
@@ -62,7 +62,7 @@
  </layer>
  <layer name="Spike" width="100" height="100">
   <data encoding="base64" compression="zlib">
-   eJztzrEJADAMA0FV3in7L+bWRcqACdzBo1YJAAAAAD842wcAAAAAHqpLGQsAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAALCpAYn4AF4=
+   eJzt0bEJACAMRNEs4TDZf7FUgqWgJM17cP2HiwAAAACAHjkdAAAAj/LDttVWzQ1/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAKcCzKkELQ==
   </data>
  </layer>
 </map>

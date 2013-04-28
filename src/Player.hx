@@ -18,6 +18,7 @@ class Player extends Entity {
   private var playerHeight:Int = 25;
 
   private var hitBottom:Bool = false;
+  private var hitTop:Bool = false;
 
   private var vx:Float = 0;
   private var vy:Float = 0;
@@ -87,6 +88,9 @@ class Player extends Entity {
     if (this.vy > 0) {
       hitBottom = true;
     }
+    if (this.vy < 0) {
+      hitTop = true;
+    }
 
     return genericCollision(e);
   }
@@ -126,6 +130,7 @@ class Player extends Entity {
 
   private function resetState() {
     hitBottom = false;
+    hitTop = false;
   }
 
   private function checkpoint() {
@@ -220,13 +225,18 @@ class Player extends Entity {
         vy = 0;
 
         if (Input.check(Key.X)) {
-          vy -= 8;
+          vy -= 10;
         }
       }
 
       if (!Input.check(Key.X) && vy < 0) {
         vy = 0;
       }
+
+      if (hitTop) {
+        vy = 0;
+      }
+
     } else {
       // ladder mode
       HXP.log("ladder!");
@@ -238,8 +248,6 @@ class Player extends Entity {
       } else {
         vy = 0;
       }
-
-      HXP.log(vy);
 
       if (Input.check(Key.X) && vy >= -3) {
         vy -= 8;
