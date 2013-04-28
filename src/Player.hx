@@ -36,6 +36,7 @@ class Player extends Entity {
   private var diedAlready:Bool = false;
 
   private var hasGun:Bool = false;
+  private var movementRestriction:Bool = false;
 
   public function new() {
     super();
@@ -81,6 +82,9 @@ class Player extends Entity {
       var en:Enemy = cast(e, Enemy);
       noMoveFlickerCountdown = 30;
       if (en.touchDamage() > 0) {
+        if (en.touchDamage() == 0) {
+          movementRestriction = true;
+        }
         this.damage(en.touchDamage());
       }
       this.moveBy(-facing * 20, 0, "wall");
@@ -134,6 +138,12 @@ class Player extends Entity {
   }
 
   public function damage(amt:Int):Void {
+    // temporary invinceability!
+    if (noMoveFlickerCountdown) {
+      return;
+    }
+
+
     this.health -= amt;
 
     if (this.health <= 0) {
@@ -280,7 +290,7 @@ class Player extends Entity {
     var collidables = ["wall", "coin", "Treasure", "HealthPlus"];
     collidables = collidables.concat(Constants.enemTypes());
 
-    if (noMoveFlickerCountdown <= 0) {
+    if (!(noMoveFlickerCountdown > 0 && movementRestriction)) {
       this.moveBy(vx, 0, collidables, true);
     }
 
