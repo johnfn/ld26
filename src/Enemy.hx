@@ -10,7 +10,7 @@ import com.haxepunk.HXP;
 class Enemy extends Entity {
   var _health:Int = 20;
   var _maxHealth:Int = 20;
-  var healthbar:EnemyHealthbar;
+  public var healthbar:EnemyHealthbar;
   var dyingCount:Int = 60;
   var dying:Bool = false;
   var facing:Int = 1;
@@ -56,6 +56,10 @@ class Enemy extends Entity {
     if (wantsToShoot) {
       HXP.scene.add(new Bullet(this, 1, this.facing * 10, 0));
     }
+  }
+
+  public function touchDamage():Int {
+    return 0;
   }
 
   public function slowlyDie() {

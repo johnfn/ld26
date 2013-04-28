@@ -14,6 +14,6 @@ class Constants {
   }
 
   public static function enemTypes():Array<String> {
-    return ["Jumper", "Walker", "Shooter"];
+    return ["Jumper", "Walker", "Shooter", "Spike"];
   }
 }

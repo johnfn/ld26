@@ -8,6 +8,7 @@ import Shooter;
 import Ladder;
 import Jumper;
 import Walker;
+import Spike;
 
 class GameMap extends TmxEntity {
   public static var widthInTiles:Int = 20;
