@@ -50,8 +50,6 @@ class UpgradeBox extends Entity {
     bgImg.x = this.x;
     bgImg.y = this.y;
 
-    //texts.push(container);
-
     var d1:TextEntity = new TextEntity("Damage: ", true, this.x + 20, this.y + 50);
     HXP.scene.add(d1);
 

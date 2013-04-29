@@ -19,6 +19,8 @@ class UpgradeBoxBox extends Entity {
   public var upgrade:UpgradeBox;
   public var upgradeType:Int;
 
+  private var notifyingSth:Bool = false;
+
   public function new(status:Int, cost:Int, upgrade:UpgradeBox, upType:Int) {
     super();
 
@@ -55,20 +57,30 @@ class UpgradeBoxBox extends Entity {
       if (Input.mouseReleased) {
         if (spritemap.currentAnim == "impossible") {
           upgrade.notify("You can't do that bro.");
+
+          notifyingSth = true;
         } else if (spritemap.currentAnim == "bought") {
           upgrade.notify("You already did that, bro.");
+
+          notifyingSth = true;
         } else if (spritemap.currentAnim == "buyable") {
           if (upgrade.buy(this.upgradeType)) {
             upgrade.notify("Upgrade bought!");
+
+            notifyingSth = true;
           } else {
             upgrade.notify("Too expensive. :(");
+
+            notifyingSth = true;
           }
         } else {
           HXP.log("WAT (see UpgradeBoxBox)");
         }
-      } else if (spritemap.currentAnim != "bought") {
+      } else if (spritemap.currentAnim != "bought" && !notifyingSth) {
         upgrade.notify('Costs $cost gold.');
       }
+    } else {
+      notifyingSth = false;
     }
   }
 }
