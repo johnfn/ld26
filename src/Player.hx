@@ -41,6 +41,10 @@ class Player extends Entity {
   public function new() {
     super();
 
+    if (Constants.DEBUG) {
+      hasGun = true;
+    }
+
     spritemap = new Spritemap("gfx/player.png", playerWidth, playerHeight);
     spritemap.add("right", [0]); //note - not specifying a framerate currently
     spritemap.add("up", [1]);
@@ -87,7 +91,9 @@ class Player extends Entity {
         }
         this.damage(en.touchDamage());
       }
-      this.moveBy(-facing * 20, 0, "wall");
+      if (this.health > 0) {
+        this.moveBy(-facing * 20, 0, "wall");
+      }
     }
 
     if (e.type == "Treasure") {

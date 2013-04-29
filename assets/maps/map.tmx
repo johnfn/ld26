@@ -20,12 +20,12 @@
  </tileset>
  <layer name="sky" width="100" height="100">
   <data encoding="base64" compression="zlib">
-   eJzt0TEyBQEAxuB3DTo6Otz/bkZlflSa7L79MpMLJG+32+2JJEme2i8eeRgfSJIkSZIkSZIk//DM1O38WOp2fix1Oz+Wup0fy+sdemae79AzU7fzY6nb+bHU7fxY6nZ+LHU7P5a6nR9L3c6PpW7nx1K382Op2/mx1O38WOp299r1v9TN/Vjq5n4sdXM/lrq5H0vd3I+lbu7HUjf3Y6mb+7HUzf1Y6uZ+LHVzP5b3g3s1Xg7u1ah7+7HUvf1Y6t5+LHVvP5a6tx9L3duPpe7tx2/q5n4sdXM/lrq5H0vd3I+lbu7HUjf3Y6mb+7HUzf1Y6uZ+LHVzP775OLhX4+3gXo26tx9L3duPpe7tx1L39mOpe/ux1L39WOrefix1bz8AAAAAAAAAAAAAAMBPPgFKm1jG
+   eJzt0TEOgwAMBEF/I+lIRzrC//8WpTQlRXyIWWl6y7dV1QIAXNqvJzEeAAAAAAAAAEC9ifICAAAAAAAAAADglA9RVgAAgD+pgBuwRyp7ZLFHFntksUcWe2SxRxZ7ZLFHlj3c3drC3a3pf9ujN/1ve/Sm/22P3vS/7dGb/rc9etP/tkdv+t/26E3/2x6SJEmSJEmSJEmSJOnYF+1/3E4=
   </data>
  </layer>
  <layer name="collisions" width="100" height="100">
   <data encoding="base64" compression="zlib">
-   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
+   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
   </data>
  </layer>
  <layer name="Treasure" width="100" height="100">
@@ -45,7 +45,7 @@
  </layer>
  <layer name="Shooter" width="100" height="100">
   <data encoding="base64" compression="zlib">
-   eJzt2rEJACAMBMAs4yzuv5Gl2Iagond9IHwVwkfwmn56AQAAAAAAAADga7oLq5ackyMAAAAAAAAAAAAAN8j2YQEAAAAAgMm/HQCglvsKAAAAAAAAAAAAANhlAI0jAWo=
+   eJzt2sEJADAIBEGbSS3pvyN7CBLhmKngniJbRZq7PQAAAAAAAAAAWPfSD0w1B9oFAAAAAAAAAAAAAMhxtgcAAAAAAEAA/3YAgFnuKwAAAAAAAAAAAADglwZwJgGM
   </data>
  </layer>
  <layer name="Ladder" width="100" height="100">
@@ -60,12 +60,12 @@
  </layer>
  <layer name="HealthPlus" width="100" height="100">
   <data encoding="base64" compression="zlib">
-   eJztzgENAAAIA6DXs38hY9xNSEACAAAAAADAJ9MOAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAct7mLAEo=
+   eJzt2LENACEQBDHao/+G6ICAAEb/trT5SZPdGAAAAAAAAPzJfH0AAADw1NyM+3Y9NLlPjxY9WvRo0aNFjxY9WvRo0aNFjxYtAAAAAIBT/ogAAAAAAAAAAAAAAAAAAAAAAAAA8G0LxisbYQ==
   </data>
  </layer>
  <layer name="Spike" width="100" height="100">
   <data encoding="base64" compression="zlib">
-   eJzt0bEJACAMRNEs4TDZf7FUgqWgJM17cP2HiwAAAACAHjkdAAAAj/LDttVWzQ1/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAKcCzKkELQ==
+   eJzt17ENADAIA0GWyDDsvxgrEFEQKXeSe7cfAQAAAAAAAMCNHIw3ne0DAAB8RS8AAACbdAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABATwFNeQVu
   </data>
  </layer>
 </map>
