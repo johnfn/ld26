@@ -26,7 +26,7 @@ class Player extends Entity {
   private var facingUp:Int = 0;
 
   private var gunCooldown:Int = 10;
-  private var gunCooldownMax:Int = 10;
+  public var gunCooldownMax:Int = 10;
 
   private var noMoveFlickerCountdown:Int = 15;
 
@@ -38,6 +38,7 @@ class Player extends Entity {
   private var hasGun:Bool = false;
   private var movementRestriction:Bool = false;
 
+  public var baseDamage:Int = 1;
 
   public function new() {
     super();
@@ -165,9 +166,9 @@ class Player extends Entity {
   private function shoot() {
     if (hasGun) {
       if (facingUp != 0) {
-        HXP.scene.add(new Bullet(this, Std.random(5) + 2, 0, this.facingUp * -10));
+        HXP.scene.add(new Bullet(this, Std.random(4) + this.baseDamage, 0, this.facingUp * -10));
       } else {
-        HXP.scene.add(new Bullet(this, Std.random(5) + 2, this.facing * 10, 0));
+        HXP.scene.add(new Bullet(this, Std.random(4) + this.baseDamage, this.facing * 10, 0));
       }
     }
   }
