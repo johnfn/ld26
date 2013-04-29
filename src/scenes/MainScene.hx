@@ -6,6 +6,7 @@ import com.haxepunk.HXP;
 import com.haxepunk.tmx.TmxEntity;
 import com.haxepunk.Entity;
 import com.haxepunk.utils.*;
+import com.haxepunk.Sfx;
 
 class MainScene extends Scene {
   public var map:GameMap;
@@ -19,11 +20,15 @@ class MainScene extends Scene {
 
   public var pauser:Entity;
 
+  public var sfx:Sfx;
+
   public function new() {
     super();
   }
 
   public override function begin() {
+    sfx = new Sfx("sfx/ld26.mp3");
+    sfx.loop();
     if (!Constants.DEBUG) {
       map = new GameMap(2, 0);
     } else {
