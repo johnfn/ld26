@@ -27,7 +27,7 @@ class MainScene extends Scene {
     if (!Constants.DEBUG) {
       map = new GameMap(2, 0);
     } else {
-      map = new GameMap(0, 0);
+      map = new GameMap(2, 0);
     }
     HXP.scene.add(map);
 
