@@ -60,7 +60,7 @@
  </layer>
  <layer name="HealthPlus" width="100" height="100">
   <data encoding="base64" compression="zlib">
-   eJztzgEJAAAIAzDrCfbPY4wrbAlWBQAAAAAAfDfpAK90OgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAcNwCA6MAlg==
+   eJztzgENAAAIA6DXs38hY9xNSEACAAAAAADAJ9MOAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAct7mLAEo=
   </data>
  </layer>
  <layer name="Spike" width="100" height="100">
