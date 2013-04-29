@@ -32,12 +32,17 @@ class MainScene extends Scene {
     if (!Constants.DEBUG) {
       map = new GameMap(2, 0);
     } else {
-      map = new GameMap(2, 0);
+      map = new GameMap(4, 1);
     }
     HXP.scene.add(map);
 
     player = new Player();
     add(player);
+
+    if (Constants.DEBUG) {
+      player.x = 1;
+      player.y = 25;
+    }
 
     hud = new HUD(player);
     add(hud);

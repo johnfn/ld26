@@ -81,6 +81,8 @@ class GameMap extends TmxEntity {
   }
 
   public function switchMap(dx:Int, dy:Int) {
+    HXP.log("Map switch");
+
     var ms:scenes.MainScene = cast(HXP.scene, scenes.MainScene);
     var removeItemTypes = dynItemTypes.concat(["bullet", "coin", "FloatingText"]);
 

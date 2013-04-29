@@ -67,7 +67,7 @@ class Player extends Entity {
     var ms:scenes.MainScene = cast(HXP.scene, scenes.MainScene);
 
     if (ms.map.mapX == 1 && ms.map.mapY == 0 && !hasGun) {
-      HXP.scene.add(new DialogBox(["You got *THE MINIMALIZER*!", "It allows you to minimalize the health of enemies.", "Simply apply the *z* key to perform shooting.", "I mean, to perform minimalization."]));
+      HXP.scene.add(new DialogBox(["You got *THE MINIMALIZER*!", "It allows you to minimalize the health of enemies.", "Simply apply the *z* key to perform shooting.", "I mean, to perform minimalization.", "Also, press *TAB* to upgrade it!"]));
       hasGun = true;
 
 
@@ -86,14 +86,16 @@ class Player extends Entity {
 
     if (Constants.isEnemy(e.type)) {
       var en:Enemy = cast(e, Enemy);
+      var died:Bool = false;
+
       if (en.touchDamage() > 0) {
         if (en.touchDamage() == 0) {
           movementRestriction = true;
         }
-        this.damage(en.touchDamage());
+        died = this.damage(en.touchDamage());
         noMoveFlickerCountdown = 30;
       }
-      if (this.health > 0) {
+      if (!died) {
         this.moveBy(-facing * 20, 0, "wall");
       }
     }
@@ -135,8 +137,6 @@ class Player extends Entity {
     this.x = enterScreenLocX;
     this.y = enterScreenLocY;
 
-    HXP.log("die!");
-
     this.vy = 0;
     this.vx = 0;
 
@@ -150,17 +150,25 @@ class Player extends Entity {
     ms.map.respawnAllEnemies();
   }
 
-  public function damage(amt:Int):Void {
+  // returns whether you died.
+  public function damage(amt:Int):Bool {
     // temporary invinceability!
     if (noMoveFlickerCountdown > 0) {
-      return;
+      if (amt > 50) { // it's a spike. if he didnt die it would be very confusing to the player.
+        die();
+        return true;
+      }
+      return false;
     }
 
     this.health -= amt;
 
     if (this.health <= 0) {
       die();
+      return true;
     }
+
+    return false;
   }
 
   private function shoot() {
@@ -183,6 +191,9 @@ class Player extends Entity {
       var d = Std.random(999);
       enterScreenLocX = this.x;
       enterScreenLocY = this.y;
+
+      this.x = enterScreenLocX;
+      this.y = enterScreenLocY;
 
       HXP.log('checkpoint: $x $y');
     }
@@ -307,8 +318,6 @@ class Player extends Entity {
     }
 
     var changedMap:Bool = false;
-
-    HXP.log("tick");
 
     changedMap = checkLeftMap();
     if (!changedMap) {
