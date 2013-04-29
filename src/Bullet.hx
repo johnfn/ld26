@@ -25,7 +25,13 @@ class Bullet extends Entity {
     this.dirX = dirX;
     this.dirY = dirY;
 
-    var spritemap = new Spritemap("gfx/bullet.png", bulletWidth, bulletHeight);
+    var spritemap:Spritemap;
+    if (spawner.type == "player") {
+      spritemap = new Spritemap("gfx/bullet2.png", bulletWidth, bulletHeight);
+    } else {
+      spritemap = new Spritemap("gfx/bullet.png", bulletWidth, bulletHeight);
+
+    }
     spritemap.add("normal", [0]); //note - not specifying a framerate currently
     spritemap.add("upwards", [1]); //note - not specifying a framerate currently
 
@@ -73,6 +79,15 @@ class Bullet extends Entity {
 
       destroy();
     }
+  }
+
+  public override function destroy() {
+    var boom:Boom = new Boom();
+    HXP.scene.add(boom);
+    boom.x = this.x;
+    boom.y = this.y;
+
+    super.destroy();
   }
 
   public override function moveCollideX(e:Entity):Bool {

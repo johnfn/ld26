@@ -34,8 +34,12 @@ class AssetData {
 			type.set ("gfx/preloader/haxepunk.png", Reflect.field (AssetType, "image".toUpperCase ()));
 			className.set ("font/04B_03__.ttf", nme.NME_font_04b_03___ttf);
 			type.set ("font/04B_03__.ttf", Reflect.field (AssetType, "font".toUpperCase ()));
+			className.set ("gfx/boom.png", nme.NME_gfx_boom_png);
+			type.set ("gfx/boom.png", Reflect.field (AssetType, "image".toUpperCase ()));
 			className.set ("gfx/bullet.png", nme.NME_gfx_bullet_png);
 			type.set ("gfx/bullet.png", Reflect.field (AssetType, "image".toUpperCase ()));
+			className.set ("gfx/bullet2.png", nme.NME_gfx_bullet2_png);
+			type.set ("gfx/bullet2.png", Reflect.field (AssetType, "image".toUpperCase ()));
 			className.set ("gfx/coin.png", nme.NME_gfx_coin_png);
 			type.set ("gfx/coin.png", Reflect.field (AssetType, "image".toUpperCase ()));
 			className.set ("gfx/dialogbox.png", nme.NME_gfx_dialogbox_png);
@@ -98,7 +102,9 @@ class NME_gfx_debug_console_play_png extends nme.display.BitmapData { public fun
 class NME_gfx_debug_console_step_png extends nme.display.BitmapData { public function new () { super (0, 0); } }
 class NME_gfx_preloader_haxepunk_png extends nme.display.BitmapData { public function new () { super (0, 0); } }
 class NME_font_04b_03___ttf extends nme.text.Font { }
+class NME_gfx_boom_png extends nme.display.BitmapData { public function new () { super (0, 0); } }
 class NME_gfx_bullet_png extends nme.display.BitmapData { public function new () { super (0, 0); } }
+class NME_gfx_bullet2_png extends nme.display.BitmapData { public function new () { super (0, 0); } }
 class NME_gfx_coin_png extends nme.display.BitmapData { public function new () { super (0, 0); } }
 class NME_gfx_dialogbox_png extends nme.display.BitmapData { public function new () { super (0, 0); } }
 class NME_gfx_enemy_shooter_png extends nme.display.BitmapData { public function new () { super (0, 0); } }
