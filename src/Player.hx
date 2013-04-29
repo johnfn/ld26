@@ -38,6 +38,7 @@ class Player extends Entity {
   private var hasGun:Bool = false;
   private var movementRestriction:Bool = false;
 
+
   public function new() {
     super();
 
@@ -84,12 +85,12 @@ class Player extends Entity {
 
     if (Constants.isEnemy(e.type)) {
       var en:Enemy = cast(e, Enemy);
-      noMoveFlickerCountdown = 30;
       if (en.touchDamage() > 0) {
         if (en.touchDamage() == 0) {
           movementRestriction = true;
         }
         this.damage(en.touchDamage());
+        noMoveFlickerCountdown = 30;
       }
       if (this.health > 0) {
         this.moveBy(-facing * 20, 0, "wall");
@@ -133,6 +134,11 @@ class Player extends Entity {
     this.x = enterScreenLocX;
     this.y = enterScreenLocY;
 
+    HXP.log("die!");
+
+    this.vy = 0;
+    this.vx = 0;
+
     if (!diedAlready) {
       diedAlready = true;
 
@@ -148,7 +154,6 @@ class Player extends Entity {
     if (noMoveFlickerCountdown > 0) {
       return;
     }
-
 
     this.health -= amt;
 
@@ -175,9 +180,10 @@ class Player extends Entity {
   private function checkpoint() {
     if (this.collideTypes(Constants.enemTypes(), this.x, this.y) == null) {
       var d = Std.random(999);
-      HXP.log('Checkpoint! $d');
       enterScreenLocX = this.x;
       enterScreenLocY = this.y;
+
+      HXP.log('checkpoint: $x $y');
     }
   }
 
@@ -188,7 +194,7 @@ class Player extends Entity {
       this.x -= scene.map.mapWidth - this.width;
 
       scene.map.switchMap(1, 0);
-      checkpoint();
+
       return true;
     }
 
@@ -196,7 +202,6 @@ class Player extends Entity {
       this.x += scene.map.mapWidth - this.width;
 
       scene.map.switchMap(-1, 0);
-      checkpoint();
       return true;
     }
 
@@ -204,7 +209,6 @@ class Player extends Entity {
       this.y -= scene.map.mapHeight - this.height;
 
       scene.map.switchMap(0, 1);
-      checkpoint();
       return true;
     }
 
@@ -212,7 +216,6 @@ class Player extends Entity {
       this.y += scene.map.mapHeight - this.height;
 
       scene.map.switchMap(0, -1);
-      checkpoint();
       return true;
     }
 
@@ -302,10 +305,19 @@ class Player extends Entity {
       this.moveBy(vx, 0, collidables, true);
     }
 
-    checkLeftMap();
-    if (!checkLeftMap()) {
+    var changedMap:Bool = false;
+
+    HXP.log("tick");
+
+    changedMap = checkLeftMap();
+    if (!changedMap) {
       this.moveBy(0, vy, collidables, true);
-      checkLeftMap();
+      changedMap = checkLeftMap();
+    }
+
+    if (changedMap) {
+      HXP.log("You left the map, making checkpint.");
+      checkpoint();
     }
 
     super.update();
