@@ -11,7 +11,7 @@ class Player extends Entity {
   public var health:Int = 1;
   public var totalHealth:Int = 1;
 
-  public var coins:Int = 20;
+  public var coins:Int = 0;
 
   private var spritemap:Spritemap;
   private var playerWidth:Int = 25;

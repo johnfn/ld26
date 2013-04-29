@@ -5,7 +5,7 @@ import scenes.*;
 class Main extends Engine {
 	override public function init() {
 #if debug
-		HXP.console.enable();
+		//HXP.console.enable();
 #end
 		HXP.scene = new MainScene();
     HXP.screen.color = 0xdddddd;
