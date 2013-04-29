@@ -175,7 +175,7 @@ class Player extends Entity {
     }
   }
 
-  private function checkLeftMap() {
+  private function checkLeftMap():Bool {
     var scene:scenes.MainScene = cast(HXP.scene, scenes.MainScene);
 
     if (this.x + this.width >= scene.map.mapWidth) {
@@ -183,7 +183,7 @@ class Player extends Entity {
 
       scene.map.switchMap(1, 0);
       checkpoint();
-      return;
+      return true;
     }
 
     if (this.x < 0) {
@@ -191,7 +191,7 @@ class Player extends Entity {
 
       scene.map.switchMap(-1, 0);
       checkpoint();
-      return;
+      return true;
     }
 
     if (this.y + this.height >= scene.map.mapHeight) {
@@ -199,7 +199,7 @@ class Player extends Entity {
 
       scene.map.switchMap(0, 1);
       checkpoint();
-      return;
+      return true;
     }
 
     if (this.y < 0) {
@@ -207,8 +207,10 @@ class Player extends Entity {
 
       scene.map.switchMap(0, -1);
       checkpoint();
-      return;
+      return true;
     }
+
+    return false;
   }
 
   public override function update() {
@@ -295,10 +297,10 @@ class Player extends Entity {
     }
 
     checkLeftMap();
-
-    this.moveBy(0, vy, collidables, true);
-
-    checkLeftMap();
+    if (!checkLeftMap()) {
+      this.moveBy(0, vy, collidables, true);
+      checkLeftMap();
+    }
 
     super.update();
 
