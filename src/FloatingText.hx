@@ -16,10 +16,11 @@ class FloatingText extends Entity {
     text = new FancyText(content, x, y);
 
     graphic = text;
+    type = "FloatingText";
   }
 
   public override function update() {
-    this.text.y -= 3;
+    this.text.y -= 1;
     --lifespan;
 
     if (this.text.y < 0 || lifespan < 0) {

@@ -65,7 +65,6 @@ class UpgradeBoxBox extends Entity {
           notifyingSth = true;
         } else if (spritemap.currentAnim == "buyable") {
           if (upgrade.buy(this.upgradeType)) {
-            upgrade.notify("Upgrade bought!");
 
             notifyingSth = true;
           } else {

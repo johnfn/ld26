@@ -55,7 +55,7 @@ class UpgradeBox extends Entity {
 
     texts.push(d1);
 
-    var d2:TextEntity = new TextEntity("Health: ", true, this.x + 20, this.y + 80);
+    var d2:TextEntity = new TextEntity("Cooldown: ", true, this.x + 20, this.y + 80);
     HXP.scene.add(d2);
 
     texts.push(d2);
@@ -79,6 +79,16 @@ class UpgradeBox extends Entity {
     if (player.coins >= cost) {
       boughtLevel[type]++;
       player.coins -= cost;
+
+      // hackhackhack
+      // it's 6:35, give me a break.
+      if (type == 0) {
+        player.baseDamage += 1;
+        notify('Your base damage is now ${player.baseDamage}.');
+      } else {
+        player.gunCooldownMax -= 1;
+        notify('Your cooldown is now ${player.gunCooldownMax}.');
+      }
       return true;
     } else {
       return false;
