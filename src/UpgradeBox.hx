@@ -31,7 +31,7 @@ class UpgradeBox extends Entity {
     texts = [];
     costs = [[1,2,3,4,5], [2,4,6,8,10]];
     boxes = [for (x in 0...2) []];
-    boughtLevel = [0, 3];
+    boughtLevel = [-1, -1];
 
     this.player = player;
 
